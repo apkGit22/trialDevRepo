@@ -1,0 +1,57 @@
+body{background:#ccc}
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
+#columns {
+  list-style-type: none;
+  -webkit-transition: all 0.2s ease-out;
+
+  -moz-transition: all 0.2s ease-out;
+
+  -ms-transition: all 0.2s ease-out;
+
+  -o-transition: all 0.2s ease-out;
+
+  transition: all 0.2s ease-out;
+}
+
+.column {
+  width: 162px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-align: center;
+  cursor: move;
+}
+.column header {
+ 
+  width: 150px;
+  color: black;
+  background-color: #ccc;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
+  border: 2px solid #666666;
+  -webkit-transition: all 0.2s ease-out;
+
+  -moz-transition: all 0.2s ease-out;
+
+  -ms-transition: all 0.2s ease-out;
+
+  -o-transition: all 0.2s ease-out;
+
+  transition: all 0.2s ease-out;
+}
+
+.column.dragElem {
+  opacity: 1;
+}
+.column.over {
+  border-top: 2px solid blue;
+}

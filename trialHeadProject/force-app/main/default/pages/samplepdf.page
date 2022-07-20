@@ -1,0 +1,54 @@
+<apex:page standardController="Account" renderAs="pdf"  applyBodyTag="false">
+    <head>
+        <style> 
+            body { font-family: 'Arial Unicode MS'; }
+            .companyName { font: bold 30px; color: red; }  
+            /*.fixedwidh td, .fixedwidh th{width:90px;word-wrap: break-word;overflow-wrap: break-word;}*/
+            .cell-breakWord {
+   word-wrap: break-word;
+   max-width: 80px;
+   white-space: pre;           /* CSS 2.0 */
+    white-space: pre-wrap;      /* CSS 2.1 */
+    white-space: pre-line;      /* CSS 3.0 */
+    white-space: -pre-wrap;     /* Opera 4-6 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: -hp-pre-wrap;  /* HP Printers */
+    word-wrap: break-word;      /* IE 5+ */
+     white-space: normal;
+    visibility: visible;
+    word-wrap:break-word;
+    overflow-wrap: break-word; 
+    overflow:hidden;
+}
+        </style>
+    </head>
+    <body>
+        <center>
+        <h1>New Account Name!</h1>
+     
+        <apex:panelGrid columns="1" width="100%">
+            <apex:outputText value="{!account.Name}" styleClass="companyName"/>
+            <apex:outputText value="{!NOW()}"></apex:outputText>
+        </apex:panelGrid>
+        <div style="width:450px;border:1px solid black">
+            <table width="100%" class="fixedwidh" border="1" >
+                <tr>
+                    <td>Name</td>
+                    <td>enterthedatum</td>
+                    <td>enterdfth</td>
+                    <td>enterdfdfth</td>
+                    <td class="cell-breakWord">enterdfdfsdfth34dfddssfsfdf</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>enterthedatum</td>
+                    <td>enterdfth</td>
+                    <td>enterdfdfth</td>
+                    <td class="cell-breakWord">enterth34dfddssfsfdf</td>
+                </tr>
+            </table>
+        </div>
+        </center>
+    </body>
+</apex:page>

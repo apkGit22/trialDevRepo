@@ -1,0 +1,579 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="maincont">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered deloption " style="margin-bottom:148px">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th style="width:30%;">
+                        <div style="padding:50px 50px 16px 0px;">
+                            <div class="shpTitle">
+                                Select delivery options
+                            </div>                            
+                        </div>
+                    </th>
+                    <th style="width:50%">
+                        <div class="slds-truncate slds-align_absolute-center" title="Products">Products</div>
+                    </th>
+                    <th style="width:20%; vertical-align:bottom;">
+                        <div class="avail">
+                        	Available in the store and estmated time delivery
+                        </div>
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <label class="chkcontainer"><span class="prnthd" title="DPD Kurjers (4,95 eur)">DPD Kurjers (4,95 eur)</span>
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            </label>  
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	
+                            </div>
+                            <div class="packcont">
+                            	
+                            </div>
+                            <div class="packcont">
+                            	
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div></div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Omniva pakomāts (4,95 eur)" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span class="prnthd" title="Omniva pakomāts (4,95 eur)">Omniva pakomāts 4,95 eur)</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	
+                            </div>
+                            <div class="packcont">
+                            	
+                            </div>
+                            <div class="packcont">
+                            	
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div></div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="DPD Paku bode (4,95 eur)" scope="row">
+                        <div class="truncate"> 
+                            <label class="chkcontainer"><span class="prnthd" title="DPD Paku bode (4,95 eur)">DPD Paku bode (4,95 eur)</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	
+                            </div>
+                            <div class="packcont">
+                            	
+                            </div>
+                            <div class="packcont">
+                            	
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div></div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice Home">Rīga. Jaunmoku iela 13, T/C Spice Home</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice">Rīga. Jaunmoku iela 13, T/C Spice</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice">Rīga. Jaunmoku iela 13, T/C Spice</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Courier</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr><tr class="slds-hint-parent">
+                    <td data-label="Opportunity Name" scope="row">
+                        <div class="truncate">
+                            <label class="chkcontainer"><span title="Rīga. Jaunmoku iela 13, T/C Spice">Rīga. Jaunmoku iela 13, T/C Spice</span>
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>  
+                        </div>
+                    </td>
+                    <td>
+                        <div class="flex-container">
+                        	<div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                            <div class="packcont">
+                            	<div>0</div>
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Close Date">
+                       <div class="flex-container">
+                            <div class="avail">
+                       			<div>15.10.2019</div> 
+                           		<div>Free Couriers</div>
+                           </div>                          
+                       </div>
+                    </td>      
+                </tr>
+                
+                
+            </tbody>
+        </table>
+       
+    
+     <div class="slds-docked-form-footer">
+            <div class="flex-container" style="width:100%">
+            	<div>
+                	<p>Delivery method:</p>
+                    <p>Please, select delivery method</p>
+                    <button class="slds-button slds-button_neutral navbtn">Back</button>
+                </div>
+                <div>
+                	<p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <button class="slds-button slds-button_neutral chkbtn disbtn" disabled="">Checkout</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    
+</aura:component>

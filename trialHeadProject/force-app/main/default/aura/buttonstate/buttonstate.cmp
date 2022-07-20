@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+ <aura:attribute name="buttonstate" type="Boolean" default="false"/>
+ <aura:attribute name="enableWifi" type="Boolean" default="true"/>
+ <div>
+ 
+ <lightning:buttonStateful labelWhenOff="Like"
+ labelWhenOn="Dislike"
+ labelWhenHover="Like"
+ iconNameWhenOff="utility:like"
+ iconNameWhenOn="utility:dislike"
+ iconNameWhenHover="utility:like"
+ state="{! v.buttonstate }"
+ onclick="{! c.handleClick }"
+ class="stateClass"
+ />
+ <lightning:buttonIconStateful iconName="utility:wifi" 
+ selected="{!v.enableWifi}" 
+ alternativeText="Wifi Enabled" 
+ onclick="{! c.handleToggle }"
+ class="stateIconClass"/>
+     
+      <lightning:buttonIconStateful iconName="utility:wifi" 
+ selected="{!v.enableWifi}" 
+ alternativeText="Wifi Enabled" 
+ onclick="{! c.handleToggle }"
+ class="stateIconClass"/>
+ </div>
+</aura:component>

@@ -1,0 +1,28 @@
+.THIS .deleterow{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity:0.5;
+    
+}
+.THIS .collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.THIS .active, .THIS .collapsible:hover {
+  background-color: #555;
+}
+
+.THIS .content {
+ 
+  display: none;
+  
+}

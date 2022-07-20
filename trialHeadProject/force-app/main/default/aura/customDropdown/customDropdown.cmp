@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute type="string" name="selected" />
+    <aura:attribute type="string" name="search" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds">
+        <div class="dropdown">
+            <lightning:input name="input3" label="Text field with a placeholder" value="{!v.selected}" aura:id="dropinput" placeholder="UOM" onclick="{!c.myFunction}"/>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="{!c.filterFunction}" text="{!v.search}"/>
+                    <ul id="myli" onclick="{!c.slcteditem}">
+                        <li >About</li>
+                        <li>Base</li>
+                        <li>Contact</li>
+                        <li>Custom</li>
+                        <li>Support</li>
+                        <li>Tools</li>
+                    </ul>                    
+                </div>                
+            </div>
+        <input id="txtId" maxlength="18" type="text"></input>
+        </div>
+    </aura:component>

@@ -1,0 +1,4 @@
+.custhgt {
+    height: calc(100vh - 50%);
+    min-height: 100%;
+}

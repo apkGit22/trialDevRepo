@@ -1,0 +1,64 @@
+<aura:component controller="ConDragandDropController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:attribute name="objName" type="String"/>
+    <aura:attribute name="objFields" type="String[]"/>
+      <aura:attribute name="dragid" type="Integer" access="private" />
+    
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <!--<aura:handler event="aura:waiting" action="{!c.showSpinner}"/>-->
+    <aura:attribute name="ContactData" type="ConDragandDropController.Contactwrap"/>
+    <div class="slds-page-header">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container" title="Description of icon when needed">
+                    <lightning:icon iconName="utility:kanban" variant="bare" size="small"/>
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Contact Records">Contact Records</h1>
+            </div>
+        </div>
+     </div>
+     <div style="padding:0.5rem;">
+         <div class="stageContainer" style="width:100%">
+            <ol ondrop="{!c.drop}" ondragover="{!c.allowDrop}" class="slds-has-dividers_around-space dropZone" style="height:100%;overflow-y:auto;">
+                
+                   <aura:iteration var="objRecord" items="{!v.ContactData.records}"  indexVar="index">
+                   
+                        <li class="slds-item slds-m-around_small" draggable="true" ondragstart="{!c.drag}" id="{!objRecord.Id}" >
+                            <article class="slds-tile slds-tile_board">
+                                <h3 class="slds-truncate" title="{!objRecord.Name}">
+                                    <!--<a href="javascript:void(0);" onclick="{!c.doView}">-->
+                                        <span class="slds-truncate" id="{!objRecord.Id}">{!objRecord.Name}</span>
+                                    <!--</a>-->
+                                </h3>
+                                <div class="slds-tile__detail slds-text-body_small">
+                                    <p class="slds-text-heading_medium">First Name: ${!objRecord.FirstName} </p>
+                                    <p class="slds-truncate" title="{!objRecord.FirstName}">
+                                        <a href="javascript:void(0);" onclick="{!c.doView}">
+                                            <span class="slds-truncate" id="{!objRecord.LastName}">{!objRecord.LastName}</span>
+                                        </a>
+                                    </p>
+                                    <!-- <p class="slds-truncate" title="{!'Closing ' +objRecord.CloseDate}">Closing {!'Closing ' +objRecord.CloseDate}</p>-->
+                                </div> 
+                            </article>
+                        </li>
+                  
+                </aura:iteration> 
+                
+            </ol>
+        </div>  
+        
+         <lightning:button label="Toggle" variant="brand" onclick="{! c.handleClick }" />
+         <div class="exampleHolder">
+             <aura:if isTrue="{! v.loaded }">
+                 Put loaded content here
+                 <aura:set attribute="else">
+                     <lightning:spinner  alternativeText="Loading" size="large"  />
+                 </aura:set>
+             </aura:if>
+         </div>
+         
+    </div>   
+</aura:component>

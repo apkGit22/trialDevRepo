@@ -1,0 +1,107 @@
+/*.THIS table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+.THIS thead {
+  background-color: #EFEFEF;
+}
+.THIS thead,.THIS tbody {
+  display: block;
+}
+
+.THIS tbody {
+  overflow-y: scroll;
+  overflow-x: auto;
+  height: 180px;
+}*/
+.THIS table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid rgb(217, 219, 221);
+}
+.THIS thead {
+  background-color: #ccc;
+  
+}
+.THIS thead th{background:#efefef;padding:5px 8px;height:2rem;  border-bottom: 1px solid rgb(217, 219, 221);white-space:normal}
+.THIS td,
+.THIS th {
+    position:relative;
+  min-width: 100px;
+  height: 25px;  
+  
+    border-right: 1px solid rgb(217, 219, 221);
+ 
+  max-width: 100px;
+}
+.THIS tbody tr{display:none}
+.THIS tr.parent {
+    display : table-row;
+}
+.THIS tr.open {
+    display : table-row;
+}
+
+.THIS table .slds-form-element__label{display:none;}
+.THIS .slds-button_destructive,.THIS .slds-button_comments{border:0;border-radius:50%;padding:8px;}
+.THIS .slds-button_destructive .slds-button__icon, .THIS .slds-button_comments .slds-button__icon{fill:#fff;width:1rem;height:1rem}
+.THIS .slds-button_comments{background:#54698d}
+.THIS .slds-button_commentsred{background:red}
+
+.THIS .topinput{width: 300px;position: absolute;top: 8px;z-index: 100;}
+
+.THIS .cmtctrl{width:auto;display:inline-block;margin-right:4px;position:relative;z-index:10}
+.THIS .cmtcont{position:absolute;background:#fff;padding:4px;width:500px;right:120%;top:-12%;
+  height:auto;border-radius:.25rem;box-shadow: 0px 1px 5px 1px #ccc;border:1px solid #ccc;z-index:1000}
+.THIS .cmtctrl .pointer {
+    z-index: 1;
+    width: calc(1.25rem + .0625rem);
+    height: calc(1.25rem + .0625rem);
+    transform: rotate(138deg);
+    border-top: 1px solid #d8dde6;
+    border-left: 1px solid #d8dde6;
+    background: #fff;
+    position: absolute;
+    top:10px;
+    right: -10px;
+}
+
+.THIS .alertred{border-left:2px solid red}
+
+.THIS .scrollerSize {
+    position:relative;
+    height: 100%;
+    max-height:200px;
+    width: 100%;
+    border-radius: 1px;
+    overflow:none;
+    
+    
+    -webkit-overflow-scrolling:touch;
+     overflow-y:scroll;
+    white-space:nowra;
+   
+}
+
+.THIS .innerDivWrapper {
+    height: calc(100% + 1px);
+   
+    
+}
+
+@media screen and (max-width: 768px) {
+        .THIS .touch {
+             -webkit-overflow-scrolling: touch;
+        }
+}
+
+/*@media (min-width: 60em){
+    .THIS .scrollerSize {
+    height: 300px;
+    width: 100%;
+    border-radius: 1px;
+        background:#000
+}
+}*/

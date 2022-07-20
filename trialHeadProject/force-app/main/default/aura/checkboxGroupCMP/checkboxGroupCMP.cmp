@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="options" type="List" default="[
+        {'label': 'Ross', 'value': 'Ross',},
+        {'label': 'Rachel', 'value': 'Rachel'},
+        {'label': 'Rache', 'value': 'Rache'}
+    ]"/>
+    <aura:attribute name="value" type="List" />
+
+    <lightning:checkboxGroup name="Checkbox Group"
+                             label="Checkbox Group"
+                             options="{! v.options }"
+                             value="{! v.value }"
+                             onchange="{! c.handleChange }"
+                             
+                             />
+
+</aura:component>

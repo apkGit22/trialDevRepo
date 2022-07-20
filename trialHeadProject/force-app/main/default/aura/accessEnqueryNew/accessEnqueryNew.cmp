@@ -1,0 +1,395 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <ltng:require scripts="{!$Resource.fixedJquery}" afterScriptsLoaded="{!c.doInit}" />
+    <aura:attribute name="scroll" type="boolean" default="false"/>
+    
+    <div class="slds" style="position:relative">
+        <div class="slds-grid slds-wrap ">
+            <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-large-size_12-of-12">
+               
+                <div class="slds-page-header">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-has-flexi-truncate">
+                            <div class="slds-media slds-no-space slds-grow">
+                                
+                                <div class="slds-media__body">
+                                    <nav>
+                                        <ol class="slds-breadcrumb slds-line-height_reset">
+                                            <li class="slds-breadcrumb__item">
+                                                <span>Customer Details</span>
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                    <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="CHEVRON">Chevron</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="slds-grid slds-page-header__detail-row">
+                        <li class="slds-page-header__detail-block">
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small" title="Field 1">Port</p>
+                            <p class="slds-text-body_regular slds-truncate" title="Port Name">Port Name</p>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small" title="Vessel">Vessel</p>
+                            <p class="slds-text-body_regular">Chevron Odense</p>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small" title="Vessel Type">Vessel Type</p>
+                            <p class="slds-text-body_regular">Panamax</p>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small" title="Currency">Currency</p>
+                            <p class="slds-text-body_regular">
+                            	<select class="slds-select" style="width:120px">
+                                	<option>USD</option>
+                                </select>
+                            </p>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <p class="slds-text-title slds-truncate slds-m-bottom_xx-small" title="Bank Name">Bank Name</p>
+                            <p class="slds-text-body_regular">HSBC Bank</p>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="dropdowncont">
+                    <div class="combocont" onclick="{!c.dropdwn}">
+                        <input type="text" class="slds-float_left" value="" placeholder="Select Service Family" id="edit-count-checked-checkboxes" />
+                        <lightning:buttonIcon iconName="utility:down" size="small" class="slds-float_right" variant="bare" alternativeText="View More" />
+                    </div>                
+                    <div class="slds-box slds-box_xx-small slds-m-bottom_medium slds-m-top_xx-small hidechkbox toggle1" aura:id="dropdwnchk" onmouseout="{!c.hidechkbox}">
+                        <ul class="horizChkbox">
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-1" value="checkbox-1" onclick="{!c.crewAst}" />
+                                            <label class="slds-checkbox__label" for="checkbox-1">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Crew Change Assistance</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-2" value="checkbox-2" onclick="{!c.lauSer}" />
+                                            <label class="slds-checkbox__label" for="checkbox-2">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Launch Service</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-3" value="checkbox-3"  />
+                                            <label class="slds-checkbox__label" for="checkbox-3">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Ground Transport</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-4" value="checkbox-4" />
+                                            <label class="slds-checkbox__label" for="checkbox-4">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Meet and Greet Service</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-5" value="checkbox-5" />
+                                            <label class="slds-checkbox__label" for="checkbox-5">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Port of Fujairah, Off-Shore Pass</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-6" value="checkbox-6" />
+                                            <label class="slds-checkbox__label" for="checkbox-6">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Port of Fujairah, CID Clearance</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-7" value="checkbox-7"  />
+                                            <label class="slds-checkbox__label" for="checkbox-7">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Port of Fujairah, Exit Fee</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-8" value="checkbox-8"  />
+                                            <label class="slds-checkbox__label" for="checkbox-8">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label" >Port of Fujairah, Attestation Fee</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-9" value="checkbox-9"  />
+                                            <label class="slds-checkbox__label" for="checkbox-9">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">Security - ISPS Fee</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-10" value="checkbox-10" />
+                                            <label class="slds-checkbox__label" for="checkbox-10">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">UAE Mission Visa</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-11" value="checkbox-11" />
+                                            <label class="slds-checkbox__label" for="checkbox-11">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">UAE Tourist Visa</span>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="slds-checkbox">
+                                            <input type="checkbox" name="options" id="checkbox-12" value="checkbox-12" />
+                                            <label class="slds-checkbox__label" for="checkbox-12">
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="slds-form-element__label">UAE Transit Visa (96 hours Visa)</span>
+                                            </label>
+                                        </span>
+                                    </li>                            
+                                </ul>
+                    </div>
+                </div>
+                
+                
+                
+                <!--
+                <aura:if isTrue="{!v.scroll}">
+                    <div class="sercont">
+                    <aura:set attribute="else">
+                        
+                        <div class="sercont">
+                        </aura:set>
+                    </aura:if>
+                        -->
+                
+                
+               <!--  <div class="{!v.scroll == 'true' ? 'sercont_overflow' : 'sercont' }">-->
+               <div class="{! if ( v.scroll, 'sercont_overflow' , 'sercont' ) }" >
+                
+                     <div class="fixhdr" >
+                        <h1 class="pgtitle">SELECT SERVICE FAMILY</h1>
+                        <div class="slds-box slds-box_xx-small slds-m-bottom_medium">
+                            <ul class="horizChkbox">
+                                <li><ui:inputCheckbox aura:id="checkbox"  label="Bunker Delivery" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox1" label="Cash to Master" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox2" label="Crew Medical Assistance"  /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox3" label="Spare Parts" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox4" label="Crew Change Assistance" change="{!c.crewAst}" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox5" label="Launch Service" change="{!c.lauSer}" /></li>  
+                                
+                                <li><ui:inputCheckbox aura:id="checkbox"  label="Bunker Delivery" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox1" label="Cash to Master" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox2" label="Crew Medical Assistance"  /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox3" label="Spare Parts" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox4" label="Crew Change Assistance" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox5" label="Launch Service" /></li> 
+                                
+                                <li><ui:inputCheckbox aura:id="checkbox"  label="Bunker Delivery" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox1" label="Cash to Master" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox2" label="Crew Medical Assistance"  /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox3" label="Spare Parts" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox4" label="Crew Change Assistance" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox5" label="Launch Service" /></li> 
+                                
+                                <li><ui:inputCheckbox aura:id="checkbox"  label="Bunker Delivery" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox1" label="Cash to Master" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox2" label="Crew Medical Assistance"  /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox3" label="Spare Parts" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox4" label="Crew Change Assistance" /></li>
+                                <li><ui:inputCheckbox aura:id="checkbox5" label="Launch Service" /></li> 
+                            </ul>
+                        </div>  
+                   </div>
+                    
+                        <div aura:id="crewast" class="toggle1 brd ">
+                            <lightning:card iconName="standard:event" title="SERVICE FAMILY : Crew Change Assistance" >                    
+                                <aura:set attribute="actions">
+                                    <div class="icncont"><lightning:icon iconName="utility:chevronup" size="small" /></div>
+                                </aura:set>
+                                <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout slds-table_col-bordered" role="grid">
+                                    <thead>
+                                        <tr class="slds-text-title_caps">
+                                            <th scope="col" style="width:10%">
+                                                <div class="slds-truncate" title="Opportunity Name">Required</div>
+                                            </th>
+                                            <th scope="col" style="width:80%">
+                                                <div class="slds-truncate" title="Account Name">Checklist Description</div>
+                                            </th>
+                                            <th scope="col" style="width:10%">
+                                                <div class="slds-truncate" title="Close Date">Available</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" >                                      
+                                                <div class="slds-text-align_center"><ui:inputCheckbox aura:id="req1"  /></div>
+                                            </th>
+                                            <td >
+                                                <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                            </td>
+                                            <td >
+                                                <div class="slds-text-align_center"><ui:inputCheckbox aura:id="avail1"  /></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" >                                      
+                                                <div class="slds-text-align_center"><ui:inputCheckbox aura:id="req2"  />  </div>                                      
+                                            </th>
+                                            <td >
+                                                <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                            </td>
+                                            <td >
+                                                <div class="slds-text-align_center"><ui:inputCheckbox aura:id="avail2"  /></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" >                                      
+                                                <div class="slds-text-align_center"> <ui:inputCheckbox aura:id="req3"  />  </div>                                      
+                                            </th>
+                                            <td >
+                                                <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                            </td>
+                                            <td >
+                                                <div class="slds-text-align_center"><ui:inputCheckbox aura:id="avail3"  /></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" >                                      
+                                                <div class="slds-text-align_center">  <ui:inputCheckbox aura:id="req4"  />  </div>                                      
+                                            </th>
+                                            <td >
+                                                <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                            </td>
+                                            <td >
+                                                <div class="slds-text-align_center"><ui:inputCheckbox aura:id="avail4"  /></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" >                                      
+                                                <div class="slds-text-align_center">   <ui:inputCheckbox aura:id="req5"  />  </div>                                      
+                                            </th>
+                                            <td >
+                                                <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                            </td>
+                                            <td >
+                                                <div class="slds-text-align_center"> <ui:inputCheckbox aura:id="avail5"  /></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" >                                      
+                                                <div class="slds-text-align_center"> <ui:inputCheckbox aura:id="req6"  />   </div>                                     
+                                            </th>
+                                            <td >
+                                                <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                            </td>
+                                            <td >
+                                                <div class="slds-text-align_center"><ui:inputCheckbox aura:id="avail6"  /></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" >                                      
+                                                <div class="slds-text-align_center">   <ui:inputCheckbox aura:id="req7"  />  </div>                                      
+                                            </th>
+                                            <td >
+                                                <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                            </td>
+                                            <td >
+                                                <div class="slds-text-align_center"> <ui:inputCheckbox aura:id="avail7"  /></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </lightning:card>
+                        </div>
+                        <div aura:id="lauser" class="toggle1 brd slds-m-top_medium">                
+                            <lightning:card iconName="standard:partner_fund_request" title="SERVICE FAMILY : Launch Service">                    
+                                <aura:set attribute="actions">
+                                    <div class="icncont"><lightning:icon iconName="utility:chevronup" size="small" /></div>
+                                </aura:set>
+                                <h1 class="slds-p-left_small pgtitle">SELECT INFORMATION AREAS</h1>
+                                <div class="slds-box slds-box_xx-small slds-m-around_small" style="height:30px">
+                                    <ul class="horizChkbox">
+                                        <li><ui:inputCheckbox aura:id="bunkFac"  label="Bunkering Facility" /></li>
+                                        
+                                        <li><ui:inputCheckbox aura:id="medSer" label="Medical Service"  /></li>
+                                        <li><ui:inputCheckbox aura:id="nstAir" label="Nearest Airport Info" /></li>
+                                        <li><ui:inputCheckbox aura:id="portInfo" label="Port Info / Restrictions" change="{!c.portRnfo}" value="true"  /></li>
+                                        <li><ui:inputCheckbox aura:id="weathInfo" label="Weather Info" change="{!c.weaInfo}" value="true" /></li>                    
+                                        <li><ui:inputCheckbox aura:id="imgReq" label="Immigration Requirements" /></li>
+                                    </ul>
+                                </div>
+                                <h1 class="bghdr slds-m-bottom_small">
+                                    INFORMATION AREAS
+                                </h1>
+                                <div class="slds-grid slds-wrap ">
+                                    <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-large-size_12-of-12">
+                                        <div class="slds-form slds-form_horizontal">
+                                            <div class="slds-grid slds-wrap slds-m-bottom_small">
+                                                <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-large-size_8-of-12">
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="portinfo">Port Info / Restrictions</label>
+                                                        <div class="slds-form-element__control">
+                                                            <textarea id="portinfo" class="slds-textarea" placeholder="Placeholder Text"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-large-size_4-of-12 slds-text-align_left">
+                                                    <button class="slds-button mybtn slds-m-top_medium" title="Request Info">
+                                                        <lightning:icon iconName="action:new_task" size="x-small" title="Request Info" alternativeText="Request Info"/>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid slds-wrap slds-m-bottom_small">
+                                                <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-large-size_8-of-12">                                                
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="wethinfo">Weather Info</label>
+                                                        <div class="slds-form-element__control">
+                                                            <textarea id="wethinfo" class="slds-textarea" placeholder="Placeholder Text"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-col slds-p-horizontal_medium slds-size_1-of-1 slds-large-size_4-of-12 slds-text-align_left">
+                                                    <button class="slds-button mybtn slds-m-top_medium"  alternativeText="Request Info" title="Request Info">
+                                                        <lightning:icon iconName="action:new_task" size="x-small" title="Request Info" alternativeText="Request Info"/> 
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <footer class="slds-card__footer">
+                                    <button class="slds-button slds-button_brand">SAVE</button>&nbsp;&nbsp;<button class="slds-button slds-button_neutral">Cancel</button>
+                                </footer>
+                            </lightning:card>
+                            
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

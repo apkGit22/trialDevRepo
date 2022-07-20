@@ -1,0 +1,50 @@
+<apex:page >
+  <style>
+      .btncont{display:flex;width:100%;padding:10px;justify-content: space-around;}
+      .btnsect{width: 150px; background: #fff; padding: 6px; box-shadow: 0 2px 2px #ccc; text-align: center;}
+      button{width:100%;padding:6px!important}
+      .btnsect a{width: 100%;display: inline-block; padding: 5px 0; border-radius: 3px; text-decoration: none;}
+      .btnsect a:hover{color:#fff!important;text-decoration: none;}
+      .lgtgrnbtn{background:#7dc37d;font-weight:bold; color:#fff}
+      .bluebtn{background:blue;font-weight:bold; color:#fff}
+      .grnbtn{background:green;font-weight:bold; color:#fff}
+      .redbtn{background:red;font-weight:bold; color:#fff}
+      .count{padding:10px;text-align:center;font-size:18px;border-bottom:1px solid #ccc}
+      .btnsect p{color:#5876a3}
+  </style>
+  <div class="btncont">
+      <div class="btnsect">
+          
+          <a href="#" class="lgtgrnbtn">My Agreement</a>
+          <div class="count">12</div>
+          <p>My Agreements</p>
+      </div>
+       <div class="btnsect">          
+          <a href="#" class="bluebtn">New Agreement</a>
+          <div class="count">12</div>
+          <p>My Agreements</p>
+      </div>
+       <div class="btnsect">
+        
+          <a href="#" class="grnbtn">Action Required</a>
+          <div class="count">12</div>
+          <p>My Agreements</p>
+      </div>
+       <div class="btnsect">          
+          <a href="#" class="redbtn">Needs Attention</a>
+          <div class="count">12</div>
+          <p>My Agreements</p>
+      </div>
+  </div>
+ <apex:form >
+
+        <apex:pageBlock title="My Content" mode="edit">
+
+            <apex:pageBlockButtons location="bottom" html-align="center">
+
+                <apex:commandButton action="{!save}" value="Save"/>
+
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+         </apex:form>
+</apex:page>

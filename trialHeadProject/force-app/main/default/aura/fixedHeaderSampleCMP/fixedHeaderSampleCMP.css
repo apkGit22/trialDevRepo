@@ -1,0 +1,54 @@
+.THIS th,.THIS td{width:150px;}
+.THIS table
+{
+    border-collapse: collapse; /* make simple 1px lines borders if border defined */
+	
+}
+.THIS th,.THIS td{border-bottom:1px solid #efefef;background:#fff;}
+.THIS.outer-container
+{
+    background-color: #efefef;
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100%;
+   
+}
+
+.THIS .inner-container
+{
+    height: 100%;
+    overflow: hidden;
+    background:#efefef;
+}
+
+.THIS .table-header
+{
+    height: 40px;
+    position: relative;
+}
+.THIS .table-body
+{
+    height: 350px;
+    overflow: auto;
+}
+
+.THIS .header-cell
+{
+    background-color: #efefef;
+    text-align: left;
+    height: 40px;
+}
+.THIS .body-cell 
+{
+   
+    text-align: left;
+    line-height:2rem
+}
+.THIS .col1,.THIS .col2, .THIS .col3, .THIS .col4, .THIS .col5
+{
+    width:150px;
+    min-width: 150px;
+}
+
+.THIS .spacer{width:3.25rem;padding:0.5rem;}

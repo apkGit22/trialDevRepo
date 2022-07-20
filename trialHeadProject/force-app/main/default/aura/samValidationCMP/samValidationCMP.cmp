@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable" >
+    <lightning:card footer="Card Footer" title="Hello">
+        <lightning:input Label="Name" aura:id="name" value="{!v.acc.Name}" required="true"/>
+        <lightning:input type="date" aura:id="date" label="Enter a date" required="true" value="{!v.acc.dhr__Custom_Date_Time__c}"/>
+        <lightning:input type="date" label="Enter a date" required="true" value="{!v.acc.dhr__SLA_Expiration_Date_Time__c}"/>
+        
+        <lightning:button variant="brand" label="Handle Form" title="Brand action" onclick="{! c.handleForm }" />
+    </lightning:card>
+</aura:component>

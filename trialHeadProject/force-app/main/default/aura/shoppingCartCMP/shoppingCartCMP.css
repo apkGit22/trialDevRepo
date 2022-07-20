@@ -1,0 +1,151 @@
+.THIS body {
+      font-family: 'Roboto', sans-serif;
+	  margin:0;padding:0;font-size:18px;color:#000;
+    }
+.THIS{
+      font-family: 'Roboto', sans-serif;
+	  margin:0;padding:0;font-size:18px;color:#000;
+    }
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/resource/Roboto);
+  /*unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;*/
+}
+.THIS .maincontainer{width:100%;}
+.THIS .tophdr{position:fixed;top:0;z-index:10;box-shadow: 0 6px 6px -1px #c7c7c7;width:100%;}
+.THIS .content{margin-top:294px;}
+.THIS .shpcartTbl{width:100%;background:#F4F6F9;color:#000}
+
+.THIS .hdrtbl td{border-top:0px!important}
+.THIS .shpcartTbl td:first-child{background:#fff;}
+.THIS .shpcartTbl td:nth-child(2){background:#fff;box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.11);}
+
+.THIS .shpcartTbl .tblhdr{font-weight: bold;font-size: 18px;line-height: 21px;color:#3E3E3C}
+.THIS .shpTitle{font-weight: bold;font-size: 35px;line-height: 50px;color:#000}
+.THIS .tdpding{font-size:18px;}
+.THIS .tdpding td{padding:10px 0px;border-bottom: 1px solid #C7C7C7;}
+
+.THIS .shpcart{position:relative;text-align:center;}
+.THIS .shpcart .prdincart{background:#C4C4C4;width:129px;height:86px;margin:0 auto;}
+.THIS .shpcart .prdtitle {color: #1165F1;width:171px;margin:0 auto;margin-top:15px;}
+
+.THIS .closebtn{background:#1165F1;color:#fff;border-radius: 6px;font-size: 20px;line-height: 23px;width: 100px;height:42px;border:0px;cursor:pointer;}
+
+/*for checkbox*/
+/* The container */
+.THIS .chkcontainer {
+  display: inline-block;
+  position: relative;
+  padding-left: 22px;
+  
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.THIS .chkcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.THIS .checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.THIS .chkcontainer:hover input ~ .checkmark {
+
+  background: rgba(62,62,60,1);
+background: -moz-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(62,62,60,1)), color-stop(100%, rgba(156,156,156,1)));
+background: -webkit-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -o-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -ms-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: linear-gradient(to bottom, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3c', endColorstr='#9c9c9c', GradientType=0 );
+border-radius:4px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.THIS .chkcontainer input:checked ~ .checkmark {
+  background: rgba(62,62,60,1);
+background: -moz-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(62,62,60,1)), color-stop(100%, rgba(156,156,156,1)));
+background: -webkit-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -o-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -ms-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: linear-gradient(to bottom, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3c', endColorstr='#9c9c9c', GradientType=0 );
+border-radius:4px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.THIS .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.THIS .chkcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.THIS .chkcontainer .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/*eof checkbox */
+
+.THIS .rightcontent{display:flex;flex-wrap:wrap;align-content:space-between;height:252px;}
+.THIS .rightcontent > div{width: 100%;}
+.THIS .rightcontent > div.rgtcont{text-align:right;margin-top:50px;}
+.THIS .rightcontent > div.lftcont{text-align:left;margin-left:29px;}
+
+.THIS .tdpding td:nth-child(4),.THIS .shpcartTbl td:nth-child(4){box-shadow: -5px 0px 5px 0px rgba(0, 0, 0, 0.11);}
+.THIS .tdpding td:first-child,.THIS .tdpding td:last-child{border-bottom:0px!important}
+.THIS input[type='text']{background: #FFFFFF;border: 1px solid #DDDBDA;box-sizing: border-box;border-radius: 6px;width:100%; font-size: 20px;line-height: 23px;color: #000000;padding:10px 16px;margin-top:25px;}
+.THIS .flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+ margin-left:24px;
+    align-items:center;
+}
+.THIS .flex-container .packedunpack{width:90px;font-weight:bold;font-size:18px;text-align:center;}
+.THIS .slds-badge{width: 80px;height: 33px;background: #E2EFDB;color:#000;text-align:center;vertical-align:middle;font-size: 18px;}
+/*.THIS .btndeliver{background: #FFFFFF;border: 1px solid #DDDBDA;box-sizing: border-box;border-radius: 6px;padding:10px;font-size:20px;color: #006FD2;}*/
+.THIS .btndeliver{font-size:20px;color: #006FD2;padding:10px;line-height:23px;border-radius:6px;}
+.THIS .tdpding span{line-height:21px;display:block;margin-left:24px;font-size:16px;}
+.THIS a{color:#006FD2;text-decoration:underline;display:block;cursor:pointer;}
+.THIS .footer{background:#C4C4C4;padding:10px;}
+.THIS .footercnt{display:flex;flex-wrap: wrap;align-content: space-around;justify-content: flex-end;}
+.THIS .footercnt > span{font-size:24px;display:inline-block;margin-top:20px;color:#000;line-height:28px;}
+/*.THIS .footerbtn{background:#fff;border:1px solid #006FD2;padding:9px 10px 10px 10px;width:230px;height:22px;border-radius:6px;color:#1165F1;font-size:18px;font-weight:bold;text-align:center;margin:15px;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);cursor:pointer;}*/
+.THIS .footerbtn{border:1px solid #006FD2;width:270px;height:42px;border-radius:6px;color:#1165F1;font-size:18px;font-weight:bold;text-align:center;margin:15px;box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);}
+.THIS .footerbtn span{font-weight:normal;}
+.THIS .btnsubtxt{text-align:center;line-height:21px;margin-top:8px;font-size:18px;color:#000;}
+.THIS .btnsubtxt span{color:#DC7135}

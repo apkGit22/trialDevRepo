@@ -1,0 +1,1188 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <ltng:require scripts="{!$Resource.fixedJquery}" afterScriptsLoaded="{!c.doInit}" />
+    <!--<ltng:require scripts="{!$Resource.fixedJquery}" afterScriptsLoaded="{!c.fixedtbl}" />-->
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'New', 'value': 'new'},
+                                                        {'label': 'In Progress', 'value': 'inProgress'},
+                                                        {'label': 'Finished', 'value': 'finished'},
+                                                        ]"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="popOpen" type="boolean" default="false"/>
+    <aura:attribute name="qty" type="Decimal" default=""/>
+    <aura:attribute name="icon" type="String" default="utility:success" />
+    
+    <aura:attribute name="Opportunities" type="Object" default="{}" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <h1 class="slds-m-around_large " style="font-size:1.5rem;font-weight:bold">Cost Estimate</h1>
+    
+    
+    
+    <div class="slds-m-around_medium custbl">
+        <div class="slds-table--header-fixed_container" style="height:450px;">
+            <div class="slds-scrollable_y" style="height:100%;">
+                <table class="slds-table slds-table_bordered slds-table--header-fixed" id="products">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Service">Service</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Type">Type</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Quantity">Quantity</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="UOM">UOM</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Currency">Currency</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Exchange Rate">Exchange Rate</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Default Price">Default Price</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Tax %">Tax %</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Total(US)">Total(US)</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Reporting Price (N/A)">Reporting Price (N/A)</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Average Historical Price">Average Historical Price</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="" title="Variance %">Variance %</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                
+                            </th>                    
+                            
+                        </tr>
+                    </thead>
+                    <tbody>  
+                        <tr class="parent">
+                            <td colspan="12" style="font-weight:bold">BERTHING</td>
+                            <td onclick="{!c.asoutcome}"><button class="tog" value="">
+                                <lightning:icon class="slds-show" aura:id="asoutcomecnt" iconName="utility:dash" size="small" alternativeText="Collapse"/>
+                                <lightning:icon class="slds-hide" aura:id="asoutcomecnt" iconName="utility:add" size="small" alternativeText="Expand"/>
+                                </button></td>
+                            
+                            
+                        </tr>
+                        <tr class="slds-hint-parent open">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                   <lightning:input type="time" aura:id="inputCell" value="{!v.value}" onblur="{!c.checkInput}"/>
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input aura:id="changeIt" type="text" value="{!v.qty}" onchange="{!c.fixQty}" onclick="{!c.topfield}" onblur="{!c.removeCSS}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="" title="UOM" id="uomid" onclick="{!c.expinput}">
+                                    <ui:inputNumber aura:id="uiinputID" class="slds-input" blur="{!c.expinputrm}" value=""/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <div class="cmtctrl" aura:id="cmtctrlID">                                    
+                                    <lightning:buttonIcon iconName="utility:comments" variant="bare"  size="medium" class="slds-button_comments btnc" value="{!key}" alternativeText="comments" onclick="{!c.popupOpen}" />
+                                    <aura:if isTrue="{!v.popOpen}">
+                                        <div class="cmtcont cmtcontID" >
+                                            <span class="pointer"></span>
+                                            <lightning:layout multipleRows="true">
+                                                <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6" padding="around-small">
+                                                    <!-- <lightning:textarea name="vcomments" class="alertred" label="Variance Comments" placeholder="Enter Variance Comments" />-->
+                                                    <ui:inputTextArea label="Variance Comment" class="alertred" />
+                                                </lightning:layoutItem>
+                                                <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6" padding="around-small">
+                                                    <lightning:textarea name="comments" label="Comments" placeholder="Enter Comments" />
+                                                </lightning:layoutItem>
+                                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
+                                                    <lightning:button variant="brand" 
+                                                                      label="Save"
+                                                                      title="Save"
+                                                                      onclick="{! c.popupClose }" class="slds-button slds-button_brand slds-float_right slds-m-right_small slds-m-bottom_small" />
+                                                </lightning:layoutItem>
+                                            </lightning:layout>
+                                            
+                                        </div>
+                                    </aura:if>
+                                </div>
+                                <!--<lightning:buttonIcon iconName="utility:comments" variant="bare"  size="medium" class="slds-button_comments" value="{!key}" onclick="{!c.openModel}" alternativeText="comments" />-->
+                                <lightning:buttonIcon iconName="utility:delete" variant="bare"  size="medium" class="slds-button_destructive" value="{!key}" onclick="{!c.deleteRow}" alternativeText="Remove" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <lightning:buttonIcon iconName="{!v.icon}" title="Default" alternativeText="Default"
+                                                      onclick="{!c.click}" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent open">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                <div class="cmtctrl" id="cmtctrlID">
+                                    <lightning:buttonIcon iconName="utility:comments" variant="bare"  size="medium" class="slds-button_comments" value="{!key}" alternativeText="comments" onclick="{!c.openModel}" />
+                                    
+                                </div>
+                                <!--<lightning:buttonIcon iconName="utility:comments" variant="bare"  size="medium" class="slds-button_comments" value="{!key}" onclick="{!c.openModel}" alternativeText="comments" />-->
+                                <lightning:buttonIcon iconName="utility:delete" variant="bare"  size="medium" class="slds-button_destructive" value="{!key}" onclick="{!c.deleteRow}" alternativeText="Remove" />
+                            </td>
+                            
+                        </tr>
+                        <tr class="slds-hint-parent open">
+                            <th data-label="Service" scope="row">
+                                <div class="slds-truncate" title="Service">
+                                    Demo 2
+                                </div>
+                            </th>
+                            <td data-label="Type">
+                                <div class="slds-truncate" title="Type">
+                                    <lightning:combobox name="progress"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Quantity">
+                                <div class="slds-truncate" id="qty" title="Quantity">
+                                    <lightning:input type="text" value="{!v.qty}" onchange="{!c.fixQty}" />
+                                </div>
+                            </td>
+                            <td data-label="UOM">
+                                <div class="slds-truncate" title="UOM">
+                                    <lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Currency">
+                                <div class="slds-truncate" title="Currency">
+                                    <lightning:combobox name="uom"  value="USD" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/>
+                                </div>
+                            </td>
+                            <td data-label="Exchange Rate">
+                                <div class="slds-truncate" title="Exchange Rate">
+                                    <lightning:input type="number" name="input9" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Default Price">
+                                <div class="slds-truncate" title="Default Price">
+                                    <lightning:input type="number" name="input10" required="true"  value="12345" maxlength="5" />
+                                </div>
+                            </td>
+                            <td data-label="Tax %">
+                                <div class="slds-truncate" title="Tax %"><lightning:combobox name="uom"  value="inProgress" placeholder="Select Progress" options="{! v.options }" onchange="{!c.handleChange}"/></div>
+                            </td>
+                            <td data-label="Total(US)">
+                                <div class="slds-truncate" title="Total">37096.80</div>
+                            </td>
+                            <td data-label="Reporting Price (N/A)">
+                                <div class="slds-truncate" title="Reporting Price (N/A)">37096.80</div>
+                            </td>
+                            <td data-label="Average Historical Price">
+                                <div class="slds-truncate" title="Average Historical Price">0.00</div>
+                            </td>
+                            <td data-label="Variance %">
+                                <div class="slds-truncate" title="Variance %">0</div>
+                            </td>
+                            <td class="slds-text-align_center">
+                                
+                            </td>
+                            
+                        </tr>
+                        <tr class="parent">
+                            <td colspan="12" style="font-weight:bold">SAILING</td>
+                            <td onclick="{!c.asoutcome1}"><button class="tog" value="">
+                                <lightning:icon class="slds-show" aura:id="asoutcomecnt1" iconName="utility:add" size="small" alternativeText="Collapse"/>
+                                <lightning:icon class="slds-hide" aura:id="asoutcomecnt1" iconName="utility:dash" size="small" alternativeText="Expand"/>
+                                </button>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->   
+        <aura:if isTrue="{!v.isOpen}">
+            
+            <!--###### MODAL BOX Start######--> 
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Start ######-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Demo 2 Service Comments</h2>
+                    </header>
+                    <!--###### MODAL BOX BODY Part Start######-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6" padding="around-small">
+                                <lightning:textarea name="vcomments" label="Variance Comments" placeholder="Enter Variance Comments" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6" padding="around-small">
+                                <lightning:textarea name="comments" label="Comments" placeholder="Enter Comments" />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+                    <!--###### MODAL BOX FOOTER Part Start ######-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>   
+                        <lightning:button variant="brand" 
+                                          label="Save"
+                                          title="Save"
+                                          onclick="{! c.closeModel }"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!--###### MODAL BOX Part END Here ######-->
+            
+        </aura:if>
+        
+        <!--<ui:scrollerWrapper class="scrollerSize touch" aura:Id="scroller">
+            <div class="innerDivWrapper">
+               <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+                <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+                <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+                <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The S
+                    alesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+                <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+                <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+                <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+                <p>The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows. 
+                The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                   The Salesforce Lightning Design System includes the resources to create user interfaces consistent with the Salesforce Lightning principles, design language, and best practices. Rather than focusing on pixels, developers can focus on application logic, while designers can focus on user experience, interactions, and flows.
+                </p>
+            </div>
+        </ui:scrollerWrapper>   -->     
+        
+    </div>
+    <!-- <div>
+        <aura:iteration items="{! v.Opportunities }" var="item">
+            <lightning:recordViewForm recordId="{!item.Id}" objectApiName="Opportunity">
+                <lightning:outputField fieldName="CloseDate" />
+            </lightning:recordViewForm>
+        </aura:iteration>
+    </div>-->
+    
+</aura:component>

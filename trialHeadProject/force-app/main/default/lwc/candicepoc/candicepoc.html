@@ -1,0 +1,304 @@
+<template>
+	
+	<lightning-card title="C.A.N.D.I.C.E"><br/>
+        
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-record-edit-form object-api-name="Account">
+					<label for="stateid">Selected State</label>
+					<lightning-input-field id="stateid" field-name="State__c" variant="label-hidden"></lightning-input-field><br/>
+					<label for="brandid">Brand Name</label>
+					<lightning-input-field id="brandid" field-name="Brand__c" variant="label-hidden"></lightning-input-field>
+				</lightning-record-edit-form>
+			</div>
+		</div><br/>
+
+		<label>What date would you like your concrete?</label>
+        <div class="slds-grid slds-gutters" style="margin-left:3%">
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input type="date" name="input1" label="DATE OF ORDER" ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input type="toggle" onclick={handleToggleMultipleOrderClick} label="IS THIS A MULTIPLE ORDER?" name="input1"></lightning-input>
+				<!--
+				<span class="slds-checkbox_on">YES</span> 
+				<span class="slds-checkbox_off">NO</span>
+				-->
+            </div>
+			<template if:true={endDateVisible}>  
+				<div class="slds-col slds-size_1-of-3">
+					<lightning-input type="date" name="input1" label="ORDER END DATE" ></lightning-input>
+				</div>
+			</template>
+        </div><br/>
+        <label>What is your account name?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-record-edit-form object-api-name="Account">
+					<label for="fieldid">ACCOUNT NAME</label>
+					<lightning-input-field id="fieldid" variant="label-hidden" field-name="Dealer__c"
+						value={selectedAccount} onchange={handleAccountChange} placeholder="type text here">
+					</lightning-input-field>
+				</lightning-record-edit-form>
+				
+			<!--	<lightning-combobox label="ACCOUNT NAME" 
+										name="Account"
+										onchange={handleAccountChange} 
+										options={accountValues} 
+										placeholder="--None--" 
+										value={selectedAccount}></lightning-combobox><br/>-->
+			</div>
+		</div><br/>
+		<label>Visibility of Notes</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_3-of-3">
+				<lightning-textarea name="input1" ></lightning-textarea>
+			</div>
+		</div><br/>
+		<label>Custom PIN</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="number" name="input2" label="PIN"></lightning-input>
+			</div>
+		</div><br/>
+		<label>Is this on a project?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-combobox label="PROJECT NAME" 
+                                    name="Project"
+                                    onchange={handleProjectChange} 
+                                    options={projectValues} 
+                                    placeholder="--None--" 
+                                    value={selectedProject}></lightning-combobox><br/>
+			</div>
+		</div><br/>
+		
+		<label>Where are we delivering to?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			
+				<div class="slds-col slds-size_1-of-3">
+					<lightning-input type="number" name="input2" label="LOT#" ></lightning-input>
+				</div>
+				<template if:true={addressVisible}> 
+					<div class="slds-col slds-size_2-of-3">
+						<lightning-textarea name="input1" label="ADDRESS" ></lightning-textarea>
+					</div>
+				</template>	
+		</div><br/>
+		
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+					<lightning-input type="toggle" onclick={handleToggleCustomAddressClick} label="CUSTOM ADDRESS" name="input1"></lightning-input>
+			</div>
+			<template if:true={deliveryAddressVisible}> 
+				<div class="slds-col slds-size_2-of-3">
+					<lightning-textarea name="input1" label="DELIVERY ADDRESS" ></lightning-textarea>
+				</div>
+			</template>
+		</div><br/>
+		
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_2-of-3">
+				<lightning-map map-markers={mapMarkers}>
+			   </lightning-map>
+			</div>
+		</div>
+		
+		<label>What information does our driver need to access the site safely?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_3-of-3">
+				<lightning-textarea name="input1" ></lightning-textarea>
+			</div>
+		</div><br/>
+		<label>What is the name of our contact on site?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="text" label="ON SITE CONTACT NAME"></lightning-input>
+			</div>
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="tel" label="ON SITE CONTACT PHONE" name="phone3" value="343-343-3434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></lightning-input>
+			</div>
+		</div><br/>
+		<label>What mix do you need?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-combobox label="MIX TYPE" 
+                                    name="MixType" 
+                                    onchange={handleMixTypeChange} 
+                                    options={mixTypeValues} 
+                                    placeholder="--None--" 
+                                    value={selectedMixType}></lightning-combobox><br/>
+			</div>
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-combobox label="MIX"
+                                    name="Mix" 
+                                    onchange={handleMixChange} 
+                                    options={mixValues} 
+                                    placeholder="--None--" 
+                                    value={selectedMix}></lightning-combobox><br/>
+			</div>
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="text" label="Mix Others"></lightning-input>
+			</div>
+		</div><br/>
+		<label>Matching Required</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input class="slds-p-left_xx-large" type="checkbox" label="Matching" onchange={handleMatchingRequiredChange} ></lightning-input>
+			</div>
+		</div><br/>
+		
+		<label>Does the order need to be placed into a specific plant?</label>
+        <div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+                <lightning-combobox label="SELECTED PLANT" 
+                                    name="Plant" 
+                                    onchange={handlePlantChange} 
+                                    options={plantValues} 
+                                    placeholder="--None--" 
+                                    value={selectedPlant}></lightning-combobox><br/>
+			</div>
+        </div><br/>
+		<label>What slump do you need?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-combobox label="SLUMP" 
+                                    name="State" 
+                                    onchange={handleStateChange} 
+                                    options={controllingValues} 
+                                    placeholder="--None--" 
+                                    value={selectedState}></lightning-combobox><br/>
+			</div>
+		</div><br/>
+        <label>Do you need a tester?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="toggle" name="input1" label="aa"></lightning-input>
+			</div>
+		</div><br/>
+		<label>Testing Notes</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_3-of-3">
+				<lightning-textarea name="input1" label="" ></lightning-textarea>
+			</div>
+		</div><br/>
+		<label>How many meters do you need?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="number" name="input2" label="CUBIC METERS OF CONCRETE" ></lightning-input>
+			</div>
+		</div><br/>
+		<label>Will you need plus load?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="toggle" onclick={handleSplitLoadClick} name="input1" label="LOAD"></lightning-input>
+			</div>
+			<template if:true={spliteLoadVisible}> 
+				<div class="slds-col slds-size_1-of-3">
+					<lightning-input type="text" label="Splited Load"></lightning-input>
+				</div>
+				<div class="slds-col slds-size_1-of-3">
+					Split the load with " , " seperated
+				</div>
+			</template>
+		</div><br/>
+		<label>How are you pouring this?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-record-edit-form object-api-name="Account">
+					<label for="pourid">POUR METHOD</label>
+					<lightning-input-field id="pourid" name="pouring" field-name="Status__c" value={selectedState} variant="label-hidden"></lightning-input-field>
+				</lightning-record-edit-form>
+			</div>
+		</div><br/>
+		<label>Truck Type</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-combobox label="TRUCK SELECTED" 
+                                    name="State" 
+                                    onchange={handleStateChange} 
+                                    options={controllingValues} 
+                                    placeholder="--None--" 
+                                    value={selectedState}></lightning-combobox><br/>
+			</div>
+		</div><br/>
+		<label>Enter the start time that has been provided to the customer</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="number" name="input2" label="START TIME HRMM(24 HR)" ></lightning-input>
+			</div>
+			<div class="slds-col slds-size_2-of-3">
+				Please enter a valid 24 hours value in the format HHMM. Eg. 0915 for 9:15AM, 1430 for 02:30
+			</div>
+		</div><br/>
+		<label>We can service that at</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-combobox label="SPACING (MINS)" 
+                                    name="State" 
+                                    onchange={handleStateChange} 
+                                    options={controllingValues} 
+                                    placeholder="--None--" 
+                                    value={selectedState}></lightning-combobox><br/>
+			</div>
+			<div class="slds-col slds-size_1-of-3">
+				minutes spacing
+			</div>
+		</div><br/>
+		<label>Unload Time</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="number" name="input2" label="UNLOAD TIME HRMM(24 HR)" ></lightning-input>
+			</div>
+		</div><br/>
+		<label>Are you ready to go earlier if we can help?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="toggle" onclick={handleToggleEarlyDeliveryClick} name="input1" label="aa"></lightning-input>
+			</div>
+			<template if:true={earlyDeliveryVisible}>
+				<div class="slds-col slds-size_1-of-3">
+					WHAT IS THE EASIEST YOU WILL BE READY
+				</div>
+				<div class="slds-col slds-size_1-of-3">
+					<lightning-input type="number" name="input2" label="START TIME HRMM(24 HR)" ></lightning-input>
+				</div>
+			</template>
+		</div><br/>
+		<label>Do you need to purchase order number on this order?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="number" name="input2" label="PURCHASE ORDER NO." ></lightning-input>
+			</div>
+		</div><br/>
+		<label>Customer Job Number</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-input type="number" name="input2" label="CUSTOMER JOB NO." ></lightning-input>
+			</div>
+		</div><br/>
+		
+		<label>Is that a firm order?</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_1-of-3">
+				<lightning-record-edit-form object-api-name="Account">
+					<label for="statusid">ORDER STATUS</label>
+					<lightning-input-field id="statusid" name="Status" field-name="Status__c" value={selectedState} variant="label-hidden"></lightning-input-field>
+				</lightning-record-edit-form>
+			</div>
+		</div><br/>
+		<label>Anything else that needs to be noted</label>
+		<div class="slds-grid slds-gutters" style="margin-left:3%">
+			<div class="slds-col slds-size_3-of-3">
+				<lightning-textarea name="input1" label="" ></lightning-textarea>
+			</div>
+		</div><br/>
+		
+        <div if:true={error}>
+            <p>{error}</p>
+        </div>
+		
+		<lightning-button variant="brand" label="READBACK" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+		
+    </lightning-card>
+</template>

@@ -1,0 +1,44 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="5">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:input aura:id="field" label="First name" placeholder="First name" required="true" messageWhenValueMissing="Enter First Name" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:input aura:id="field" label="Last name" placeholder="Last name" required="true"  />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:input aura:id="field" type="email" label="Email Address" placeholder="Email Address" required="true"  messageWhenTypeMismatch="Enter a valid email address"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" >
+                        <lightning:button aura:id="submit" type="submit" label="Submit" onclick="{! c.onClick }" />
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="1">
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="5">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:input aura:id="firstName" label="First name" placeholder="First name"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:input aura:id="lastName" label="Last name" placeholder="Last name" required="true"  />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:input aura:id="email" type="text" label="Email Address" placeholder="Email Address" required="true"  messageWhenPatternMismatch="Enter a valid email address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:input aura:id="phone" type="text" label="Phone Number" placeholder="Phone Number" required="true"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" >
+                        <lightning:button aura:id="submit" type="submit" label="Submit Custom Validation" onclick="{! c.onCustomValidationClick }" />
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+         
+    </div>
+</aura:component>

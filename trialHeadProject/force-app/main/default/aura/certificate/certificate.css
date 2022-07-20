@@ -1,0 +1,40 @@
+.THIS {font-family: sans-serif;}
+.THIS.pfcontainer{position:relative;width:90%;margin:0 auto;border:1px solid #ccc;/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f2f2f2+2,ffffff+51,f2f2f2+100 */
+background: #f2f2f2; /* Old browsers */
+background: -moz-linear-gradient(left,  #f2f2f2 2%, #ffffff 51%, #f2f2f2 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #f2f2f2 2%,#ffffff 51%,#f2f2f2 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #f2f2f2 2%,#ffffff 51%,#f2f2f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2',GradientType=1 ); /* IE6-9 */
+color:#000;    
+}
+.THIS .hdrcont{
+   width:100%;background:rgb(0, 112, 192);padding:8px 20px;display:flex;justify-content:space-between;
+}
+.THIS .logo{align-self:center;}
+.THIS .logo img{width:6em}
+.THIS .prfTitle{font-size:2em;color:#fff;font-weight:bold;}
+
+.THIS .certcont{width:90%;margin:50px auto;}
+.THIS .pfphoto{position:relative;width:260px;border:1px solid #ccc;}
+.THIS .pfphoto img{width:100%}
+.THIS .pfphoto .pfname{background:rgba(0, 0, 0, 0.4);position:absolute;bottom:0;padding:6px;width:100%;text-align:center;}
+.THIS .pfphoto .pfname span{color: #fff;font-size: 1.2rem;font-weight: bold;}
+.THIS .pfcert{display:block;text-align:center;}
+.THIS .txtmedium{color:rgb(7, 121, 183);font-weight:bold;font-size:1rem;width:100%;}
+
+.THIS .rgtcont{width:95%}
+.THIS .expdet{border:1px solid #ccc;padding:10px 30px;display:flex;justify-content:space-between;}
+.THIS .expdet h2{font-size:2rem;font-weight:bold;margin:-8px 0;padding:0;}
+.THIS .red{color:rgb(192,0,0)}
+.THIS .blu{color:rgb(0,112,192)}
+
+.THIS h1{font-size:1.2rem;font-weight:bold;color:#000;border-bottom:1px solid rgb(255,192,0);margin-bottom:20px;}
+.THIS h1.redbg:before{content:" ";width:16px;height:16px;background:rgb(192,0,0);display: inline-block;  margin-right: 10px;}
+.THIS h1.orgbg:before{content:" ";width:16px;height:16px;background:rgb(255,192,0);display: inline-block;  margin-right: 10px;}
+
+.THIS .skilltit{font-size: 1.3rem;font-weight: bold;font-style: italic;border-bottom: 1px solid #ccc;}
+.THIS .skillscont{display:flex;justify-content:space-between;font-size:0.9rem;width:90%;margin:0 auto;}
+.THIS .skillscont ul{ list-style-type: square;margin-left:16px;margin-top:20px;}
+.THIS .skillscont li{margin-bottom:10px;}
+
+.THIS .btmbrd{background:rgb(64,64,64);height:10px;width:100%;position:absolute;bottom:0}

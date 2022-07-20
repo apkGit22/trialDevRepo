@@ -1,0 +1,7 @@
+.THIS .slds-form-element__control .slds-checkbox{
+    display:inline;
+}
+
+.THIS .setSelected{
+    background-color: #EEE;
+}

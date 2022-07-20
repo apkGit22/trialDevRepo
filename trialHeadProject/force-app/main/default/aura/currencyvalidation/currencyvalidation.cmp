@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="amount" type="Integer" default="100,000" />
+    <div class="slds-box slds-m-around_large">
+        <lightning:input type="number" maxlength="10" required="true" name="input7" label="Number field with currency formatter" value="123.45" formatter="currency" step="0.01"/>
+        <lightning:input type="number" name="input8" required="true" value="12345" label="Required number field with a maximum length of 10" maxlength="10" />
+    </div>
+    <div class="row slds-box">
+        <h2 class="header">Live Input Number</h2>
+        <lightning:input type="number"  name="seven" value="{! v.amount }" placeholder="type the number of items..." label="Enter a number" maxlength="10" />
+        <p>
+            Number of Items: {! v.amount }
+        </p>
+    </div>
+</aura:component>

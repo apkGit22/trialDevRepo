@@ -1,0 +1,266 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<div class="maincontainer">
+<div class="tophdr">
+	<table  width="100%" class="shpcartTbl hdrtbl">
+		<tr>
+			<td style="3%">&nbsp;</td>
+			<td style="width:27%">
+				<div style="padding:50px 50px 16px 0px;">
+					<div class="shpTitle">
+						Shopping Cart availability
+					</div>
+					<input type="text" placeholder="Filter store" class="srchtext" />
+					<div class="tblhdr" style="margin-top:35px;color:#000">Stores (19)</div>
+				</div>
+			</td>
+			<td style="width:49%;text-align:center;position:relative;">
+				<div class="shpcart slds-align_absolute-center" style="height:5rem">
+                    <div style="width:100%">
+                        <div class="prdincart">	</div>
+                        <a class="prdtitle">Portatīvais dators MacBook Air 13’', DC i5 1.8GHz, 8</a>
+                    </div>
+				</div>
+				<div style="position:absolute;bottom:18px;width:100%;text-align:center;">
+					<p class="tblhdr">Packed / <label class="chkcontainer">Unpacked
+                        <input type="checkbox" checked="checked" />
+					  <span class="checkmark"></span>
+					</label> </p>
+				</div>
+			</td>
+			<td style="width:19%">
+				<div class="rightcontent">
+					<div class="rgtcont">
+						<input type="button" class="closebtn" value="Close" />
+					</div>
+					<div class="lftcont">
+						<p class="tblhdr" style="color:#000">Available in the store</p>
+					</div>					
+				</div>
+			</td>
+			<td style="3%">&nbsp;</td>
+		</tr>
+	</table>
+</div>
+<div class="content">
+	<table  width="100%" class="shpcartTbl tdpding">
+		<tr>
+			<td style="3%">&nbsp;</td>
+			<td style="width:27%">Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td style="width:49%">
+				<div style="width:180px;margin:0 auto;" class="flex-container">
+					<div class="packedunpack">
+						0
+					</div>
+					<div class="packedunpack">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td style="width:19%">
+				<div class="flex-container">
+					<div class="slds-badge">today</div>
+					<div>
+						<button class="slds-button slds-button_neutral btndeliver">DELIVER</button>
+					</div>	
+				</div>
+			</td>
+			<td style="3%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<div class="flex-container">
+					<div class="slds-badge">today</div>
+					<div>
+						<button class="slds-button slds-button_neutral btndeliver">DELIVER</button>
+					</div>	
+				</div>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td>&nbsp;</td>
+			<td >Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<div class="flex-container">
+					<div class="slds-badge">today</div>
+					<div>
+						<button class="slds-button slds-button_neutral btndeliver">DELIVER</button>
+					</div>	
+				</div>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Rīga. Centrālā stacija, Stacijas laukums 2, T/C Origo</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<span>Not available in the store.
+				<a herf="#">Deliver to the customer (0 EUR)</a></span>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<span>Not available in the store.
+				<a herf="#">Deliver to the customer (0 EUR)</a></span>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<span>Not available in the store.
+				<a herf="#">Deliver to the customer (0 EUR)</a></span>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<span>Not available in the store.
+				<a herf="#">Deliver to the customer (0 EUR)</a></span>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<span>Not available in the store.
+				<a herf="#">Deliver to the customer (0 EUR)</a></span>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>Riga. Jaunmoku iela 13, T/C Spice Home</td>
+			<td>
+				<div style="width:180px;margin:0 auto;">
+					<div style="width:90px;text-align:center;float:left;font-weight:bold;font-size:18px;">
+						0
+					</div>
+					<div style="width:90px;text-align:center;float:right;font-weight:500;font-size:18px;">
+						1
+					</div>
+				</div>
+				
+			</td>
+			<td >
+				<span>Not available in the store.
+				<a herf="#">Deliver to the customer (0 EUR)</a></span>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</div>
+<div class="footer">
+	<div class="footercnt">
+		<span>Select Delivery Options:</span>
+		<div>
+			<div >
+                <button class="slds-button slds-button_neutral footerbtn">DPD kurjers<span> (4.95 &euro;)</span></button>
+            </div>
+			<div class="btnsubtxt"><span>4 days</span> 18.10.2019</div>
+		</div>
+		<div>
+            <div >
+                <button class="slds-button slds-button_neutral footerbtn">Omniva pakomāts <span> (0.00 &euro;)</span></button>
+            </div>			
+			<div class="btnsubtxt"><span>4 days</span> 18.10.2019</div>
+		</div>
+		<div>
+            <div >
+                <button class="slds-button slds-button_neutral footerbtn">DPD Paku bode<span> (0.00 &euro;)</span></button>
+            </div>			
+			<div class="btnsubtxt"><span>4 days</span> 18.10.2019</div>
+		</div>
+	</div>
+</div>
+</div>
+	
+</aura:component>

@@ -1,0 +1,187 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="gridColumns" type="List" access="PRIVATE" />
+    <aura:attribute name="gridData" type="Object" access="PRIVATE" />
+    <aura:attribute name="gridExpandedRows" type="List" access="PRIVATE" />
+        <aura:attribute name="items" type="Object" access="PRIVATE"/>
+    <span id="topp"></span>
+    <div class="slds-card slds-m-around_medium">
+        <lightning:accordion aura:id="accordion">
+            <lightning:accordionSection name="adFilter" label="Additional Filter (atleast one)">
+                
+                <aura:set attribute="body">
+                    <lightning:layout multipleRows="true">
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">1</div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">2</div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">3</div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">4</div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">5</div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">6</div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">7</div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                            <div class="custom-box">8</div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </aura:set>
+            </lightning:accordionSection>
+           
+            <lightning:accordionSection name="srchResult" label="Search Result" class="slds-is-open" >
+                <p>This is the content area for section B.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+             <span id="content">sdf</span>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection><lightning:accordionSection name="pstArea" label="Posting Area">
+                <p>This is the content area for section C.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </div>
+    
+    <div class="slds-card slds-m-around_medium slds-p">
+        
+
+
+    <div>
+        <lightning:treeGrid
+            columns="{! v.gridColumns }"
+            data="{! v.gridData }"
+            expandedRows="{! v.gridExpandedRows }"
+            keyField="name"
+        />
+    </div>
+       
+    </div>
+   
+      <lightning:button variant="brand" label="Scroll Top" class="slds-m-around_large" title="Brand action" onclick="{! c.scrolltop }"/>
+    <lightning:button variant="brand" label="Part Posi" class="slds-m-around_large" title="Brand action" onclick="{! c.partposi }"/>
+</aura:component>

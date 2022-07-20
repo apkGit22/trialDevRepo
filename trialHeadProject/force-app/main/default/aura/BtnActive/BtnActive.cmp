@@ -1,0 +1,8 @@
+<aura:component >
+	<div id="myDIV">
+  <lightning:button class="btn" aura:id="bout" label="1"/>
+  <lightning:button class="btn active" aura:id="bout" label="2"/>
+  <lightning:button class="btn" aura:id="bout" label="3"/>
+  <lightning:button class="btn" aura:id="bout" label="4"/>
+</div>
+</aura:component>

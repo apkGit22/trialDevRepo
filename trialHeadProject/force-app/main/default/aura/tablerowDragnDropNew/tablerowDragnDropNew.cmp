@@ -1,0 +1,40 @@
+<aura:component  >
+    
+    <!--
+    <aura:attribute name="options" type="List" default="[]"/>
+    <aura:attribute name="values" type="List" default="[]"/>
+    <aura:attribute name="requiredOptions" type="List" default="[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <lightning:dualListbox name="multipleOptions"  
+                           label= "Select Options (Option 7 and Option 12 are required)" 
+                           sourceLabel="Available" 
+                           selectedLabel="Selected" 
+                           options="{!v.options}" 
+                           value="{!v.values}" 
+                           requiredOptions="{!v.requiredOptions}" 
+                           onchange="{! c.handleChange }"/>
+    -->
+    <div class="droparea">
+        <ul>
+            <li draggable="true">List Item 1</li>
+            <li draggable="true">List Item 2</li>
+            <li draggable="true">List Item 3</li>
+            <li draggable="true">List Item 4</li>
+            <li draggable="true">List Item 5</li>
+            <li draggable="true">List Item 6</li>
+            <li draggable="true">List Item 7</li>
+            <li draggable="true">List Item 8</li>
+            <li draggable="true">List Item 9</li>
+            <li draggable="true">List Item 10</li>
+        </ul>
+    </div>
+    
+    
+    
+    
+    
+    
+    <ltng:require scripts="{!$Resource.dragndrop}"  />
+</aura:component>

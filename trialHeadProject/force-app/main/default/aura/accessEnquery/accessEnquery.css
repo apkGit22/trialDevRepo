@@ -1,0 +1,66 @@
+.THIS h1.pgtitle{background:#29588C;color:#fff;border-radius-top-left:4px;border-radius-top-right:4px;/*rgb(84, 105, 141)*/padding:6px 8px;font-size:0.85rem;font-weight:bold;border-bottom:1px solid rgb(221, 219, 218)}
+.THIS h2{font-weight:bold;}
+.THIS .horizChkbox{list-style:none;height: 87px;overflow-y: auto;}
+.THIS .horizChkbox li{display:inline-block;padding:6px 3px 0px;margin-right: 6px;width:212px;vertical-align:top;height: 38px;}
+.THIS .horizChkbox li:first-child{margin-left:0}
+.THIS .uiInput--checkbox input, .THIS input.uiInput--checkbox{float:left;margin-top: 1px;}
+.THIS .horizChkbox label{line-height:1rem;padding-left:7px;color:rgba(27, 82, 151, 1.0);}
+
+.THIS .slds-box{background:#fff;box-shadow:0px 0px 3px #ccc}
+
+.THIS .horizChkbox li.selected{background:#1776c7;border-radius:20px;color:#fff;}
+
+.THIS .toggle1{display:none;}
+.THIS .brd{border: 1px solid rgb(221, 219, 218);border-radius: .25rem;}
+/*.THIS .slds-media__body, .THIS .slds-media__body > :last-child{margin-bottom: 5px;}*/
+.THIS .slds-card__header,.THIS .slds-card__body{margin-bottom:0px;}
+.THIS .slds-card__header{padding:0;border-bottom: 1px solid rgb(221, 219, 218)}
+.THIS .slds-media{margin-left:10px;}
+
+
+
+
+.THIS thead th{padding:8px;background:#29588C;color:#fff;font-weight:bold}
+.THIS table .uiInput--checkbox input, .THIS table input.uiInput--checkbox{display:inline-block;}
+.THIS .scrollcont{height:272px;overflow-y:auto;}
+
+.THIS .slds-icon_smallchev{width:1rem;height:1rem;}
+.THIS .icncont{padding:8px;cursor:pointer}
+.THIS .icncont .slds-icon_small{width:1.1rem;height:1.1rem;}
+
+.THIS .bghdr{padding:6px 8px;background:#29588C;color:#fff;font-weight:bold;font-size:0.8rem}
+.THIS .mybtn{line-height: 0.875rem;}
+.THIS .flexipageComponent {position:relative;}
+
+
+.THIS .slds-card__footer{border-top: 1px solid rgb(221, 219, 218)}
+
+
+.THIS .slds-checkbox .slds-form-element__label {
+    display: block;
+    vertical-align: middle;
+    top: -17px;
+    position: relative;
+    margin-left: 28px;
+    color: rgba(27, 82, 151, 1.0);
+}
+.THIS .slds-form-element__control .slds-checkbox{height:35px}
+
+.THIS .sercont{position:relative}
+/*.THIS .sercont{position:relative;height:450px;overflow-y:hidden}
+.THIS .sercont:hover{overflow-y:scroll;}*/
+
+.THIS .sticky {
+  position: fixed;
+  top: 200px;
+  width:67%;
+    z-index:200;
+}
+
+.THIS .sticky + .content {
+  padding-top: 102px;
+}
+
+.THIS .slds-page-header__detail-row{background:transparent;margin:0;padding:0}
+.THIS .slds-page-header__detail-block{padding-right:0}
+.THIS .slds-card__body table .slds-text-align_center{width:10%;margin:0 auto;}

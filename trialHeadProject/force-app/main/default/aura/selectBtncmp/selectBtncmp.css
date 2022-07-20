@@ -1,0 +1,17 @@
+.THIS .dispaly_flex{display: flex;justify-content: space-between;}
+
+.THIS .payment_method{flex-wrap: wrap;}
+.THIS .payment_method>div{width: 49%;text-transform: uppercase;}
+
+.THIS .align_center{align-items: center;}
+
+.THIS .align_top{align-items:flex-start;}
+
+.THIS .delivery_address_btn{background: #F5F5F5;border-radius: 5px;padding:16px;margin-bottom: 16px;color: #999;margin-top:8px;}
+.THIS .delivery_address_btn .cross, .THIS .delivery_address_btn .cart-card-price{color: #999;}
+.THIS .delivery_address_btn .subtext{color:#999;}
+.THIS .delivery_address_btn:hover, .THIS .delivery_address_btn_active{background-color: #fff;border: 2px solid #00C9FF;padding:14px;}
+
+.THIS .mrg_r_8{margin-right: 8px}
+
+.THIS .extra_b_16{text-shadow: 0.4px 0 #333;letter-spacing:0.2px;}

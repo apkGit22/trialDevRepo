@@ -1,0 +1,70 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="pfcontainer">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1">
+                <div class="hdrcont bg">
+                    <h2 class="prfTitle">Profile: CoE Head</h2>
+                    <div class="logo"><img src="{!$Resource.tm_logo}" alt="Tech Mahindra" /></div>
+                </div>
+                <div class="certcont">
+                    <div class="slds-grid slds-wrap slds-gutters ">
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12">
+                            <div class="pfphoto slds-align_absolute-center">
+                                <img src="{!$Resource.pf_photo}" alt="Tech Mahindra" />
+                                <div class="pfname"><span>Rupesh Kumar Umapathy</span></div>                            
+                            </div>
+                            <div class="pfcert slds-align_absolute-center slds-m-around_x-small">
+                                <p class="txtmedium">Senior Solution Architect</p>
+                                <ul class="slds-m-top_small">
+                                    <li>Salesforce Administrator</li>
+                                    <li>Sales cloud consultant</li>
+                                    <li>Service cloud consultant</li>
+                                    <li>Certified Marketing Cloud email Specialist</li>
+                                    <li>Certified Integration Architecture Designer</li>
+                                    <li>Certified Development Lifecycle  Deployment Designer</li>                                
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+                            <div class="rgtcont">
+                                <div class="expdet">
+                                    <div>
+                                        <h2 class="red">21+</h2>
+                                        Years of IT Experience
+                                    </div>
+                                    <div>
+                                        <h2 class="blu">17+</h2>
+                                        Years of CRM / ERP Domain Experience
+                                    </div>
+                                </div>
+                                <div class="slds-m-top_large">
+                                    <h1 class="redbg">Certified Salesforce System / Application Architect</h1>
+                                    <h1 class="orgbg">Certified SCRUM Master</h1>
+                                </div>
+                                <div class="slds-m-top_large">
+                                    <p class="skilltit">Skills</p>
+                                    <div class="skillscont">
+                                    	<ul>
+                                            <li>End to End CRM Transformation on Salesforce</li>
+                                            <li>Strategy and Advisory – Consulting &amp; Roadmap</li>
+                                            <li>Solution Architecture</li>
+                                            <li>Community Implementation</li>
+                                            <li>Enterprise Application Integration</li>
+                                        </ul>
+                                        <ul>
+                                            <li>Application and Data Migrations</li>
+                                            <li>Delivery &amp; Program Management</li>
+                                            <li>CPQ Business Process Implementation</li>
+                                            <li>Organization and Business Change &amp; Management</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btmbrd"></div>
+    </div>
+</aura:component>

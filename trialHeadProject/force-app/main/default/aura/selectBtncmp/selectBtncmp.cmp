@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="dispaly_flex payment_method flex_column_sp">
+        <div class="dispaly_flex align_center align_top delivery_address_btn new_payment_btn tab">
+            <div class="mrg_r_8">
+                <b class="extra_b_16">MasterCard</b><br />
+            </div>
+            <div class="cart_item_right">
+                <img src="images/payment/mastercard.svg" />
+            </div>
+        </div>
+        <div class="dispaly_flex align_center align_top delivery_address_btn new_payment_btn tab">
+            <div class="mrg_r_8">
+                <b class="extra_b_16">Visa</b><br/>
+            </div>
+            <div class="cart_item_right">
+                <img src="images/payment/visa.svg"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

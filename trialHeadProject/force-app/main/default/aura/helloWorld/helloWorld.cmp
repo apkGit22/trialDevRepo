@@ -1,0 +1,13 @@
+<aura:component >
+    <div class="mstone">
+    <p style="font-weight:bold">Inquiry Milestone</p>
+    <p style="color:#a5a5a5;"><i>6 days 23 hr 55 min remaining</i></p>
+    <p style="color:#005fb">Mark Completed</p>
+        </div>
+    
+     <div class="slds-text-body_small slds-p-around_xx-small">
+    <p style="font-weight:bold;color:#000">Inquiry Milestone</p>
+    <p style="color:#a5a5a5;"><i>6 days 23 hr 55 min remaining</i></p>
+    <p style="color:#005fb">Mark Completed</p>
+        </div>
+</aura:component>

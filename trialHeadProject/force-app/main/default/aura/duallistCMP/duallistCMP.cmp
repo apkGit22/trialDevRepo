@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name="options" type="List" default="[
+        { label: 'Bunkering Facility', value: 'en' },
+        { label: 'German', value: 'de' },
+        { label: 'Immigration Requirements', value: 'es' },
+        { label: 'Medical Service', value: 'fr' },
+        { label: 'Nearest Airport Info', value: 'it' },
+        { label: 'Port Info / Restrictions', value: 'ja' },
+    	{ label: 'Weather Info', value: 'ja' }]"/>
+
+   <div class="slds-m-around_small">
+       <lightning:dualListbox name="languages"  
+                           label= "SELECT INFORMATION AREAS" 
+                           sourceLabel="Available" 
+                           selectedLabel="Selected" 
+                           fieldLevelHelp="This is a dual listbox" 
+                           options="{!v.options}" 
+                           onchange="{! c.handleChange }"/>
+</div>
+
+</aura:component>

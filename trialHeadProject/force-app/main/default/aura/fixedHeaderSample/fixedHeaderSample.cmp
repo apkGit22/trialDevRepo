@@ -1,0 +1,1059 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!--<aura:attribute name="divHeight" type="Integer" default="100" /> -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+    
+    <div class="slds-table--header-fixed_container"  id="left">
+        <div class="slds-scrollable_y" style="height:100%;" id="inner">
+            <table class="slds-table slds-table_bordered slds-table--header-fixed">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Opportunity Name">Opportunity Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Account Name">Account Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">Close Date</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">DA status</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">DA AMOUNT</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">DA AMOUNT(USD)</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">Close Date</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">Payer Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">ACTION</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">AUTHORIZATION CATEGORY</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">REASON FOR REJECTION</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date" style="width:150px">
+                            <div class="slds-truncate" title="4/14/2015" style="width:150px">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">CloudhubCl oudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">34534534.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                       <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                       <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                       <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Anypoint Connectors"><a href="javascript:void(0);">Anypoint Connectors</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td  data-label="Opportunity Name">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">LAST</a></div>
+                        </td>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">56790.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">234234.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">Connectors</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">6456456.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">564566.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">345345.00</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="AUTHORIZATION CATEGORY">
+                                <select>
+                                    <option>Select an Option</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="4/14/2015">
+                                <textarea></textarea>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div  style="{! 'height:'+v.divHeight+'px;'}">
+    	sample height
+    </div>    
+    <!-- <div class="slds">
+        <section class="">
+            <div class="container">
+                <table>
+                    <thead>
+                        <tr class="header">
+                            <th>
+                                Table attribute name
+                                <div>Table attribute name</div>
+                            </th>
+                            <th>
+                                Value
+                                <div>Value</div>
+                            </th>
+                            <th>
+                                Description
+                                <div>Description</div>
+                            </th>
+                            <th>
+                                ACtion
+                                <div>ACtion</div>
+                            </th>
+                             <th>
+                                Fixed Description
+                                <div>Fixed Description</div>
+                            </th>
+                            <th>
+                                Fixed Description
+                                <div>Fixed Description</div>
+                            </th>
+                            <th>
+                                Fixed Description
+                                <div>Fixed Description</div>
+                            </th>
+                            <th>
+                                Description
+                                <div>Fixed Description</div>
+                            </th>
+                            <th>
+                                Description
+                                <div>Fixed Description</div>
+                            </th>
+                            <th>
+                                Description
+                                <div>Fixed Description</div>
+                            </th>
+                            <th>
+                                Description
+                                <div>Fixed Description</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>align</td>
+                            <td>left, center, right</td>
+                            <td>Not supported in HTML5. Deprecated in HTML 4.01. Specifies the alignment of a table according to surrounding text</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                        <tr>
+                            <td>bgcolor</td>
+                            <td>rgb(x,x,x), #xxxxxx, colorname</td>
+                            <td>Not supported in HTML5. Deprecated in HTML 4.01. Specifies the background color for a table</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                       
+                        <tr>
+                            <td>cellpadding</td>
+                            <td>pixels</td>
+                            <td>Not supported in HTML5. Specifies the space between the cell wall and the cell content</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                        <tr>
+                            <td>cellspacing</td>
+                            <td>pixels</td>
+                            <td>Not supported in HTML5. Specifies the space between cells</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                        <tr>
+                            <td>frame</td>
+                            <td>void, above, below, hsides, lhs, rhs, vsides, box, border</td>
+                            <td>Not supported in HTML5. Specifies which parts of the outside borders that should be visible</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                        <tr>
+                            <td>rules</td>
+                            <td>none, groups, rows, cols, all</td>
+                            <td>Not supported in HTML5. Specifies which parts of the inside borders that should be visible</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                        <tr>
+                            <td>summary</td>
+                            <td>text</td>
+                            <td>Not supported in HTML5. Specifies a summary of the content of a table</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                        <tr>
+                            <td>width</td>
+                            <td>pixels, %</td>
+                            <td>Not supported in HTML5. Specifies the width of a table</td>
+                            <td><input type="text" /></td>
+                            <td><textarea></textarea></td>
+                            <td>352334.00</td>
+                            <td>352334.00</td>
+                            <td>3534.00</td>
+                            <td>334.00</td>
+                            <td>34.00</td>
+                            <td>3534.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>-->
+</aura:component>

@@ -1,0 +1,38 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="slds slds-m-around_large">          
+        <div class="slds-form ">
+        <div class="slds-grid slds-wrap slds-gutters">
+            
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 slds-m-bottom_small">
+                <div class="slds-form-element">                    
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-bottom_small">
+                <div class="slds-form-element">                    
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 slds-m-bottom_small">
+               <div class="slds-form-element">                    
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-bottom_small">
+                <div class="slds-form-element">                    
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+</aura:component>

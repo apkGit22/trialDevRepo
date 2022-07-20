@@ -1,0 +1,175 @@
+.THIS{margin:0;padding:0}
+.THIS body {
+      font-family: 'Roboto', sans-serif;
+	  margin:0;padding:0;font-size:18px;color:#000;
+    }
+.THIS{
+      font-family: 'Roboto', sans-serif;
+	  margin:0;padding:0;font-size:18px;color:#000;
+    }
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/resource/Roboto);
+  /*unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;*/
+}
+.THIS .maincont{
+  width:100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.THIS .deloption tbody td:nth-child(2){
+    background:#F8F8F8;
+}
+
+.THIS thead th {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  top: 0;
+    border-bottom:3px solid #053A69;
+}
+
+.THIS tbody th {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  left: 0;
+}
+
+
+/* To have the header in the first column stick to the left: */
+
+.THIS thead th {
+  left: 0;
+  z-index: 1;
+}
+
+/* Just to display it nicely: */
+
+.THIS thead th {
+  background: #000;
+  color: #FFF;
+    white-space:normal!important;
+}
+
+.THIS tbody th {
+  background: #FFF;
+}
+.THIS .prnthd{font-weight:bold;}
+.THIS .flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;   
+    align-items:center;
+}
+.THIS .flex-container > div.packcont{
+    width:220px;border-right:5px solid #e5e5e5; text-align:center;padding:0.6rem;height:48px;
+}
+.THIS .flex-container > div.packcont:last-child{border:0;}
+.THIS .flex-container > div.packcont >div{width:97px;text-align:center;float:left;font-size:18px;font-weight:bold;}
+.THIS .slds-table td{padding:0rem!important;}
+.THIS .shpTitle{font-weight: bold;font-size: 35px;line-height: 93%;color:#000}
+
+/*for checkbox*/
+/* The container */
+.THIS .chkcontainer {
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;  
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.THIS .chkcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.THIS .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #eee;
+    border:2px solid #000
+}
+
+/* On mouse-over, add a grey background color */
+.THIS .chkcontainer:hover input ~ .checkmark {
+
+  background: rgba(62,62,60,1);
+background: -moz-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(62,62,60,1)), color-stop(100%, rgba(156,156,156,1)));
+background: -webkit-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -o-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -ms-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: linear-gradient(to bottom, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3c', endColorstr='#9c9c9c', GradientType=0 );
+    border:0;
+}
+
+/* When the checkbox is checked, add a blue background */
+.THIS .chkcontainer input:checked ~ .checkmark {
+  background: rgba(62,62,60,1);
+background: -moz-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(62,62,60,1)), color-stop(100%, rgba(156,156,156,1)));
+background: -webkit-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -o-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: -ms-linear-gradient(top, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+background: linear-gradient(to bottom, rgba(62,62,60,1) 0%, rgba(156,156,156,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3c', endColorstr='#9c9c9c', GradientType=0 );
+    border:0;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.THIS .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.THIS .chkcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.THIS .chkcontainer .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/*eof checkbox */
+.THIS .avail{width:234px;margin:0 auto;color:#000;font-size:18px}
+.THIS .avail > div{width:50%;float:left}
+
+.THIS .truncate{white-space: nowrap; 
+  width: 363px; 
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.THIS .slds-table_cell-buffer tr > td:first-child{padding-left:1.5rem!important;}
+.THIS .slds-docked-form-footer{background:#13315D;color:#fff;line-height:33px;padding:10px 0 18px 0}
+.THIS .slds-docked-form-footer > div:first-child{padding-left:1.5rem;}
+.THIS .slds-docked-form-footer > div:last-child{padding-right:1.5rem;}
+.THIS .slds-docked-form-footer .navbtn{border-radius: 6px; line-height: 23px;width: 129px;padding: 6px;}
+.THIS .slds-docked-form-footer .disbtn{width:239px;background:#C8C7C5;border:0;border-radius: 6px; line-height: 23px;padding: 6px;color:#fff}
+.THIS .slds-docked-form-footer .chkbtn{width:239px;border:0;border-radius: 6px; line-height: 23px;padding: 6px;}
+.THIS .slds-docked-form-footer button{margin-top:16px;}
