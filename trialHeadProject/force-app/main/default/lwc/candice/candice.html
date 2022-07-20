@@ -27,7 +27,7 @@
 			</div>
 		
 		
-		<h2>What date whould you like your Concrete?</h2>
+		<h2>What date whould you like your Concrete?</h2><h2>What date whould you like your Concrete?</h2>
 		<div class="flex-grid">	
 			<div>
 				<span>Date of order</span>
@@ -45,35 +45,34 @@
 					<lightning-input type="date" id="ordEDate" name="ordEDate" ></lightning-input>
 				</div>
 			</template>
-		</div>
-		<h2>What is your account name?</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-record-edit-form object-api-name="Account">
-					<label for="fieldid">ACCOUNT NAME</label>
-					<lightning-input-field id="fieldid" variant="label-hidden" field-name="Dealer__c"
-						value={selectedAccount} onchange={handleAccountChange} placeholder="type text here">
-					</lightning-input-field>
-				</lightning-record-edit-form>
-			</div>
-		</div>
-		<h2>Visibility of Notes</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-textarea name="notes" id="notes" readonly>Notes from Account</lightning-textarea>
-			</div>
-		</div>
-		<h2>Customer PIN</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-input type="number" id="pinno" name="input2" label="PIN Number" required></lightning-input>
-				<label  for="pinno">Load 1</label>
-			</div>
-		</div>
-		
-		<h2>Is This On A Project?</h2>
-		<div class="flex-grid">	
-			<select id="project" name="project" onchange={onProjectChange} >
+</div>
+<h2>What is your account name?</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-record-edit-form object-api-name="Account">
+            <label for="fieldid">ACCOUNT NAME</label>
+            <lightning-input-field id="fieldid" variant="label-hidden" field-name="Dealer__c" value={selectedAccount} onchange={handleAccountChange} placeholder="type text here">
+            </lightning-input-field>
+        </lightning-record-edit-form>
+    </div>
+</div>
+<h2>Visibility of Notes</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-textarea name="notes" id="notes" readonly>Notes from Account</lightning-textarea>
+    </div>
+</div>
+<h2>Customer PIN</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-input type="number" id="pinno" name="input2" label="PIN Number" required></lightning-input>
+        <label for="pinno">Load 1</label>
+    </div>
+</div>
+
+<h2>Is This On A Project?</h2>
+<div class="flex-grid">
+    <select id="project" name="project" onchange={onProjectChange}>
 				<option value="">---Select---</option>
 				<!--iterate all picklist values from wrapper list using for:each loop
 					<template for:each={industryValues.data} for:item="picklistItem">
@@ -81,8 +80,8 @@
 						{picklistItem.slabel}
 					</option>
 				</template>-->
-				</select>				
-		<!--	<div class="custom-select-wrapper">
+				</select>
+    <!--	<div class="custom-select-wrapper">
 				<div class="custom-select">
 					<div class="custom-select__trigger"><span>Project Name</span>
 						<div class="arrow"></div>
@@ -93,146 +92,130 @@
 					</div>
 				</div>
 			</div>-->
-		</div>
-		
-		<h2>Where are we deliverying to?</h2>
-		<div class="flex-grid">	
-			<div class="input-field width7">
-				<lightning-input type="number" id="lotno" name="lotno" label="LOT #" ></lightning-input>
-			</div>
-			<template if:true={addressVisible}> 
+</div>
+
+<h2>Where are we deliverying to?</h2>
+<div class="flex-grid">
+    <div class="input-field width7">
+        <lightning-input type="number" id="lotno" name="lotno" label="LOT #"></lightning-input>
+    </div>
+    <template if:true={addressVisible}> 
 			<div class="input-field">
 				<lightning-textarea id="address" name="address" label="Address" ></lightning-textarea>
 			</div>
 			</template>
-		</div>
-		<h2>Custom Address</h2>
-		<div class="flex-grid">
-			
-			<div class="input-field width7">
-				<lightning-input type="toggle" onclick={handleToggleCustomAddressClick} name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>
-			</div>
-			<template if:true={deliveryAddressVisible}> 				
+</div>
+<h2>Custom Address</h2>
+<div class="flex-grid">
+
+    <div class="input-field width7">
+        <lightning-input type="toggle" onclick={handleToggleCustomAddressClick} name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>
+    </div>
+    <template if:true={deliveryAddressVisible}> 				
 			<div class="input-field" >
 				<lightning-textarea id="delad" name="delad" label="DELIVERY ADDRESS" ></lightning-textarea>
 			</div>
 			</template>
-		</div>
-		<h2> </h2>
-		<div class="flex-grid">
-			<div>
-			<lightning-map
-				map-markers={mapMarkers}>
-			</lightning-map>
-			</div>
-		</div>
-		
-		<h2>What information does our driver need to access the site safely?</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-textarea id="infnotes" name="infnotes" ></lightning-textarea>
-			</div>
-		</div>
-		
-		<h2>What is the name of our contact on site?</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-input type="text" id="onSiteContName" label="On Site Contact Name"></lightning-input>
-			</div>
-			
-			<div class="input-field">
-				<lightning-input type="tel" label="On Site Contact Phone" id="onSiteContPh" name="onSiteContPh" value="343-343-3434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></lightning-input>
-			</div>
-		</div>
-		
-		<h2>What mix do you need?</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-			<lightning-combobox label="MIX TYPE" 
-								name="MixType" 
-								onchange={handleMixTypeChange} 
-								options={mixTypeValues} 
-								placeholder="--None--" 
-								value={selectedMixType}></lightning-combobox>
-			</div>
-			<div class="input-field">
-			<div class="custom-select-wrapper">
-				<lightning-combobox label="MIX"
-								name="Mix" 
-								onchange={handleMixChange} 
-								options={mixValues} 
-								placeholder="--None--" 
-								value={selectedMix}></lightning-combobox>
-			</div>
-			</div>
-			<div class="input-field">
-				<lightning-input type="text" id="mixOthers" label="Mix Others"></lightning-input>
-			</div>
-		</div>
-		
-		<h2>Matching Required</h2>
-		<div class="flex-grid">
-			<div>
-				<lightning-input id="matreq" name="matreq" type="checkbox" label="Matching Required" onchange={handleMatchingRequiredChange} ></lightning-input>
-			</div>
-		</div>
-		
-		<h2>Does the order need to be placed into a specific plant?</h2>
-		<div class="flex-grid">					
-				<div class="custom-select-wrapper">
-			<lightning-combobox label="Select Plant" 
-								name="Plant" 
-								onchange={handlePlantChange} 
-								options={plantValues} 
-								placeholder="--None--" 
-								value={selectedPlant}></lightning-combobox>
-								</div>
-		</div>
-		
-		<h2>What slump do you need?</h2>
-		<div class="flex-grid">
-			<div class="slidecontainer">
-			<lightning-slider min="0" max="200" step="10" value={slump} onchange={handleSlider}></lightning-slider>
-			<p style="text-align:center;"> Slump: {slump} </p>
-			</div>
-		</div>
-		<!--	<lightning-combobox label="SLUMP" 
+</div>
+<h2> </h2>
+<div class="flex-grid">
+    <div>
+        <lightning-map map-markers={mapMarkers}>
+        </lightning-map>
+    </div>
+</div>
+
+<h2>What information does our driver need to access the site safely?</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-textarea id="infnotes" name="infnotes"></lightning-textarea>
+    </div>
+</div>
+
+<h2>What is the name of our contact on site?</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-input type="text" id="onSiteContName" label="On Site Contact Name"></lightning-input>
+    </div>
+
+    <div class="input-field">
+        <lightning-input type="tel" label="On Site Contact Phone" id="onSiteContPh" name="onSiteContPh" value="343-343-3434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></lightning-input>
+    </div>
+</div>
+
+<h2>What mix do you need?</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-combobox label="MIX TYPE" name="MixType" onchange={handleMixTypeChange} options={mixTypeValues} placeholder="--None--" value={selectedMixType}></lightning-combobox>
+    </div>
+    <div class="input-field">
+        <div class="custom-select-wrapper">
+            <lightning-combobox label="MIX" name="Mix" onchange={handleMixChange} options={mixValues} placeholder="--None--" value={selectedMix}></lightning-combobox>
+        </div>
+    </div>
+    <div class="input-field">
+        <lightning-input type="text" id="mixOthers" label="Mix Others"></lightning-input>
+    </div>
+</div>
+
+<h2>Matching Required</h2>
+<div class="flex-grid">
+    <div>
+        <lightning-input id="matreq" name="matreq" type="checkbox" label="Matching Required" onchange={handleMatchingRequiredChange}></lightning-input>
+    </div>
+</div>
+
+<h2>Does the order need to be placed into a specific plant?</h2>
+<div class="flex-grid">
+    <div class="custom-select-wrapper">
+        <lightning-combobox label="Select Plant" name="Plant" onchange={handlePlantChange} options={plantValues} placeholder="--None--" value={selectedPlant}></lightning-combobox>
+    </div>
+</div>
+
+<h2>What slump do you need?</h2>
+<div class="flex-grid">
+    <div class="slidecontainer">
+        <lightning-slider min="0" max="200" step="10" value={slump} onchange={handleSlider}></lightning-slider>
+        <p style="text-align:center;"> Slump: {slump} </p>
+    </div>
+</div>
+<!--	<lightning-combobox label="SLUMP" 
 								name="State" 
 								onchange={handleStateChange} 
 								options={controllingValues} 
 								placeholder="--None--" 
 								value={selectedState}></lightning-combobox><br/>-->
-		
-		
-		<h2>Do you need a tester?</h2>
-		<div class="flex-grid">
-				<div class="custom-select-wrapper">
-			<div class="input-field">
-			<lightning-input type="toggle" name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>	
-			</div>
-			</div>
 
-		</div>	
-		
-		
-		<h2>Testing Notes</h2>
-		<div class="flex-grid">					
-			<div class="input-field">
-				<lightning-textarea id="testnotes" name="testnotes" label="" ></lightning-textarea>
-			</div>
-		</div>
-		
-		<h2>How many meters do you need?</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-input type="number" id="cubicM" name="cubicM" label="Cubic Meters of Concrete" ></lightning-input>
-			</div>
-			<div class="btn-group">
-				<lightning-button class="subBtn" variant="brand" label="+" id="splitPlus" name="splitPlus" onclick={handleSplitLoadPlusClick}></lightning-button>
-				<lightning-button class="subBtn" variant="brand" label="-" id="splitMinus" name="splitMinus" onclick={handleSplitLoadMinusClick}></lightning-button>
-			</div>
-		
-		<template if:true={spliteLoadVisible}>
+
+<h2>Do you need a tester?</h2>
+<div class="flex-grid">
+    <div class="custom-select-wrapper">
+        <div class="input-field">
+            <lightning-input type="toggle" name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>
+        </div>
+    </div>
+
+</div>
+
+
+<h2>Testing Notes</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-textarea id="testnotes" name="testnotes" label=""></lightning-textarea>
+    </div>
+</div>
+
+<h2>How many meters do you need?</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-input type="number" id="cubicM" name="cubicM" label="Cubic Meters of Concrete"></lightning-input>
+    </div>
+    <div class="btn-group">
+        <lightning-button class="subBtn" variant="brand" label="+" id="splitPlus" name="splitPlus" onclick={handleSplitLoadPlusClick}></lightning-button>
+        <lightning-button class="subBtn" variant="brand" label="-" id="splitMinus" name="splitMinus" onclick={handleSplitLoadMinusClick}></lightning-button>
+    </div>
+
+    <template if:true={spliteLoadVisible}>
 		<div class="input-field">
 			<input type="text" id="ld1" required />
 			<label for="ld1">Load 1</label>
@@ -254,70 +237,60 @@
 			<label for="ld5">Load 5</label>
 		</div>
 	</template>
-		</div>
-		
-		<h2>Will you need plus load?</h2>
-		<div class="flex-grid">
-			<div class="input-field plusload">
-				<lightning-input type="toggle" name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>
-			</div>	
-		</div>
-		
-		<h2>How are you pouring this?</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-record-edit-form object-api-name="Account">
-					<label for="statusid">Pour Method</label>
-					<lightning-input-field id="pourMtd" name="pourMtd" field-name="Status__c" value={selectedState} variant="label-hidden"></lightning-input-field>
-				</lightning-record-edit-form>
-			</div>
-		</div>
-		
-		<h2>Truck Type</h2>
-		<div class="flex-grid">	
-				<div class="custom-select-wrapper">
-			<lightning-combobox label="Truck Selected" 
-								name="State" 
-								onchange={handleStateChange} 
-								options={controllingValues} 
-								placeholder="--None--" 
-								value={selectedState}></lightning-combobox>
-								</div>
-		</div>
-		<h2>Enter the start time that has been provided to the customer</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-input type="number" id="strNewTime" name="strNewTime" label="START TIME HRMM(24 HR)" ></lightning-input>
-				<span class="helptext">Please enter a valid 24 hours value in the format HHMM. Eg. 0915 for 9:15AM, 1430 for 02:30</span>
-			</div>
-		</div>
-		
-		<h2>We can service that at</h2>
-		<div class="flex-grid">
-				<div class="custom-select-wrapper">
-			<lightning-combobox label="Spacing(Mins)" 
-								name="State" 
-								onchange={handleStateChange} 
-								options={controllingValues} 
-								placeholder="--None--" 
-								value={selectedState}></lightning-combobox>
-					</div>
-			
-		</div>
-		
-		<h2>Unload Time</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-input type="number" id="strULTime" name="strULTime" label="Unload Time HRMM(24 HR)" ></lightning-input>
-			</div>
-		</div>
-		
-		<h2>Are you ready to go earlier if we can help?</h2>
-		<div class="flex-grid">
-			<div class="input-field width7" style="margin-top:21px;">
-				<lightning-input type="toggle" onclick={handleToggleEarlyDeliveryClick} name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>
-			</div>
-			<template if:true={earlyDeliveryVisible}>
+</div>
+
+<h2>Will you need plus load?</h2>
+<div class="flex-grid">
+    <div class="input-field plusload">
+        <lightning-input type="toggle" name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>
+    </div>
+</div>
+
+<h2>How are you pouring this?</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-record-edit-form object-api-name="Account">
+            <label for="statusid">Pour Method</label>
+            <lightning-input-field id="pourMtd" name="pourMtd" field-name="Status__c" value={selectedState} variant="label-hidden"></lightning-input-field>
+        </lightning-record-edit-form>
+    </div>
+</div>
+
+<h2>Truck Type</h2>
+<div class="flex-grid">
+    <div class="custom-select-wrapper">
+        <lightning-combobox label="Truck Selected" name="State" onchange={handleStateChange} options={controllingValues} placeholder="--None--" value={selectedState}></lightning-combobox>
+    </div>
+</div>
+<h2>Enter the start time that has been provided to the customer</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-input type="number" id="strNewTime" name="strNewTime" label="START TIME HRMM(24 HR)"></lightning-input>
+        <span class="helptext">Please enter a valid 24 hours value in the format HHMM. Eg. 0915 for 9:15AM, 1430 for 02:30</span>
+    </div>
+</div>
+
+<h2>We can service that at</h2>
+<div class="flex-grid">
+    <div class="custom-select-wrapper">
+        <lightning-combobox label="Spacing(Mins)" name="State" onchange={handleStateChange} options={controllingValues} placeholder="--None--" value={selectedState}></lightning-combobox>
+    </div>
+
+</div>
+
+<h2>Unload Time</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-input type="number" id="strULTime" name="strULTime" label="Unload Time HRMM(24 HR)"></lightning-input>
+    </div>
+</div>
+
+<h2>Are you ready to go earlier if we can help?</h2>
+<div class="flex-grid">
+    <div class="input-field width7" style="margin-top:21px;">
+        <lightning-input type="toggle" onclick={handleToggleEarlyDeliveryClick} name="input1" unchecked message-toggle-active="YES" message-toggle-inactive="NO"></lightning-input>
+    </div>
+    <template if:true={earlyDeliveryVisible}>
 			<div class="">
 				<span style="display:block;margin-bottom:10px">What is the easiest you will be ready?</span>
 				<div class="input-field">
@@ -325,46 +298,46 @@
 				</div>
 			</div>
 		</template>
-		</div>
-		
-		
-		
-		<h2>Do you need to purchase order number on this order?</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-input type="number" id="purOrd" name="purOrd" label="Purchase Order Number" ></lightning-input>
-			</div>
-		</div>
-		
-		<h2>Customer Job Number</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-input type="number" id="custJno" name="custJno" label="Customer Job Number" ></lightning-input>
-			</div>
-		</div>
-		
-		<h2>Is that a firm order?</h2>
-		<div class="flex-grid">	
-			<div>
-			<lightning-record-edit-form object-api-name="Account">
-				<lightning-input-field id="statusid" name="Status" field-name="Status__c" value={selectedState} variant="label-hidden"></lightning-input-field>
-			</lightning-record-edit-form>
-			</div>
-		</div>
-		
-		<h2>Anything else that needs to be noted</h2>
-		<div class="flex-grid">
-			<div class="input-field">
-				<lightning-textarea id="othernotes" name="othernotes" label="" ></lightning-textarea>
-			</div>
-		</div>
-		<div if:true={error}>
-			<p>{error}</p>
-		</div>
-		<div class="btnwrapper">
-		<lightning-button variant="brand" label="READBACK" title="READBACK" onclick={openModal} class="slds-m-left_x-small"></lightning-button>
-		</div>
-		<template if:true={isModalOpen}>
+</div>
+
+
+
+<h2>Do you need to purchase order number on this order?</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-input type="number" id="purOrd" name="purOrd" label="Purchase Order Number"></lightning-input>
+    </div>
+</div>
+
+<h2>Customer Job Number</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-input type="number" id="custJno" name="custJno" label="Customer Job Number"></lightning-input>
+    </div>
+</div>
+
+<h2>Is that a firm order?</h2>
+<div class="flex-grid">
+    <div>
+        <lightning-record-edit-form object-api-name="Account">
+            <lightning-input-field id="statusid" name="Status" field-name="Status__c" value={selectedState} variant="label-hidden"></lightning-input-field>
+        </lightning-record-edit-form>
+    </div>
+</div>
+
+<h2>Anything else that needs to be noted</h2>
+<div class="flex-grid">
+    <div class="input-field">
+        <lightning-textarea id="othernotes" name="othernotes" label=""></lightning-textarea>
+    </div>
+</div>
+<div if:true={error}>
+    <p>{error}</p>
+</div>
+<div class="btnwrapper">
+    <lightning-button variant="brand" label="READBACK" title="READBACK" onclick={openModal} class="slds-m-left_x-small"></lightning-button>
+</div>
+<template if:true={isModalOpen}>
 			<!-- Modal/Popup Box LWC starts here -->
 			<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
 				<div class="slds-modal__container">
@@ -394,8 +367,8 @@
 			</section>
 			<div class="slds-backdrop slds-backdrop_open"></div>
 		</template>
-		</div>
-	</div>
 </div>
-</div>	
+</div>
+</div>
+</div>
 </template>
